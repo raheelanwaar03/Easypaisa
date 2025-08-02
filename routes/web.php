@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $whatsapp = \App\Models\admin\Whatsapp::first();
-    $channel_link = \App\Models\user\officialChannel::first();
+    $channel_link = \App\Models\User\officialChannel::first();
     if ($channel_link) {
         return view('welcome', compact('whatsapp', 'channel_link'));
     }
