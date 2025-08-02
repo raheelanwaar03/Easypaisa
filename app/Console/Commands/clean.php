@@ -152,6 +152,12 @@ class clean extends Command
         $whatsapp->status = 'active';
         $whatsapp->save();
 
+        // official Channel link
+        $officialChannel = new officialChannel();
+        $officialChannel->channel_link = 'https://www.youtube.com/channel/UC1234567890';
+        $officialChannel->status = 'active';
+        $officialChannel->save();
+
         $this->info('Database cleaned and seeded successfully.');
     }
 }

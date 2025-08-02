@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Models\User\WidthrawReq;
+use App\Models\user\WidthrawReq;
 
 
 class WidthrawRequestsController extends Controller

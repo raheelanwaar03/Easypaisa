@@ -5,10 +5,10 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\admin\Plans;
 use App\Models\User;
-use App\Models\User\BuyPlan;
-use App\Models\User\EasyPaisaMangement;
-use App\Models\User\GivenProfit;
-use App\Models\User\Wallet;
+use App\Models\user\BuyPlan;
+use App\Models\user\EasyPaisaMangement;
+use App\Models\user\GivenProfit;
+use App\Models\user\Wallet;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 

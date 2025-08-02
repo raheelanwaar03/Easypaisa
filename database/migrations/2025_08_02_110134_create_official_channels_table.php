@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('official_channels', function (Blueprint $table) {
             $table->id();
-            $table->string('channel_link')->default('https://www.youtube.com/channel/UC123456789');
-            $table->string('status')->default('active');
+            $table->string('channel_link');
+            $table->string('status');
             $table->timestamps();
         });
     }

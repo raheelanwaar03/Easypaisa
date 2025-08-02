@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\admin\Plans;
-use App\Models\User\BuyPlan;
+use App\Models\user\BuyPlan;
 use Illuminate\Http\Request;
 
 class PlansController extends Controller
