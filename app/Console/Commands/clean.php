@@ -159,8 +159,6 @@ class clean extends Command
         $channel->status = 'active';
         $channel->save();
 
-
-
         $this->info('Database cleaned and seeded successfully.');
     }
 }

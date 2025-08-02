@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('official_channels', function (Blueprint $table) {
             $table->id();
             $table->string('channel_link');
-            $table->string('status')->default('active'); // 'active', 'inactive', 'pending'
+            $table->string('status');
             $table->timestamps();
         });
     }
