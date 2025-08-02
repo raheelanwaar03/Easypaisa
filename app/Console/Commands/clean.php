@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\admin\Plans;
+use App\Models\admin\Whatsapp;
 use App\Models\User;
 use App\Models\User\EasyPaisaMangement;
 use App\Models\User\PlanDetails;
@@ -144,6 +145,13 @@ class clean extends Command
         $user->status = 'approved';
         $user->save();
 
-        return Command::SUCCESS;
+        // whatsapp setting
+        $whatsapp = new Whatsapp();
+        $whatsapp->whatsapp_link = 'https://api.whatsapp.com/send?phone=923000000000&text=Hello%20Admin';
+        $whatsapp->status = 'active';
+        $whatsapp->save();
+
+
+        $this->info('Database cleaned and seeded successfully.');
     }
 }

@@ -145,14 +145,6 @@
                 </div>
             </div>
             <div class="row">
-                <div class="column">
-                    <a href="#" style="text-decoration:none;color:#000">
-                        <div class="inner_data" style="background-color: #fff;border-radius: 10px;padding:20px;">
-                            <i class="fa fa-usd" aria-hidden="true" style="font-size: 30px !important;"></i>
-                            <h5 style="font-size: 11px;">Salary</h5>
-                        </div>
-                    </a>
-                </div>
                 <a href="#" style="text-decoration:none;color:#000">
                     <div class="column">
                         <div class="inner_data" style="background-color: #fff;border-radius: 10px;padding:20px;">

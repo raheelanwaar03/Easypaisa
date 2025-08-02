@@ -68,4 +68,8 @@ Route::prefix('Admin/')->name('Admin.')->middleware('auth', 'admin')->group(func
     Route::get('All/Task', [AdminTaskController::class, 'all'])->name('All.Task');
     Route::post('Store/Task', [AdminTaskController::class, 'store'])->name('Store.Task');
     Route::get('Delete/Task/{id}', [AdminTaskController::class, 'delete'])->name('Delete.Task');
+    // Whatsapp
+    Route::get('Whatsapp/Setting', [SettingController::class, 'whatsapp'])->name('Whatsapp.Setting');
+    Route::get('Edit/Whatsapp/Setting/{id}', [SettingController::class, 'edit_whatsapp'])->name('Edit.Whatsapp.Setting');
+    Route::post('Update/Whatsapp/Setting/{id}', [SettingController::class, 'update_whatsapp'])->name('Update.Whatsapp.Setting');
 });

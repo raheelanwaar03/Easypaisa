@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\Whatsapp;
 use App\Models\User\EasyPaisaMangement;
 use App\Models\User\PlanDetails;
 use App\Models\User\ReferalLevel;
@@ -14,8 +15,8 @@ class SettingController extends Controller
 {
     public function allLevels()
     {
-        $levels = ReferalLevel::where('status','1')->get();
-        return view('admin.setting.level',compact('levels'));
+        $levels = ReferalLevel::where('status', '1')->get();
+        return view('admin.setting.level', compact('levels'));
     }
 
     public function editLevel($id)
@@ -24,7 +25,7 @@ class SettingController extends Controller
         return view('admin.setting.editlevel');
     }
 
-    public function updateLevel(Request $request,$id)
+    public function updateLevel(Request $request, $id)
     {
         $level = ReferalLevel::find($id);
         $level->level1 = $request->level1;
@@ -38,24 +39,24 @@ class SettingController extends Controller
         $level->level9 = $request->level9;
         $level->level10 = $request->level10;
         $level->save();
-        return redirect()->back()->with('success','Level Changed successfully');
+        return redirect()->back()->with('success', 'Level Changed successfully');
     }
 
     // Widthraw Limits
 
     public function widthrawLimites()
     {
-        $limites = Setting::where('status','1')->get();
-        return view('admin.setting.widthraw.limite',compact('limites'));
+        $limites = Setting::where('status', '1')->get();
+        return view('admin.setting.widthraw.limite', compact('limites'));
     }
 
     public function editWidthrawLimites($id)
     {
         $limite = Setting::find($id);
-        return view('admin.setting.widthraw.editlimite',compact('limite'));
+        return view('admin.setting.widthraw.editlimite', compact('limite'));
     }
 
-    public function updateLimite(Request $request,$id)
+    public function updateLimite(Request $request, $id)
     {
         $limite = Setting::find($id);
         $limite->mini_widthraw = $request->mini_widthraw;
@@ -64,69 +65,88 @@ class SettingController extends Controller
         $limite->planB = $request->planB;
         $limite->planC = $request->planC;
         $limite->save();
-        return redirect()->back()->with('success','Limite updated successfully');
+        return redirect()->back()->with('success', 'Limite updated successfully');
     }
 
     public function text()
     {
-        $texts = verificationText::where('status','1')->get();
-        return view('admin.setting.text.index',compact('texts'));
+        $texts = verificationText::where('status', '1')->get();
+        return view('admin.setting.text.index', compact('texts'));
     }
 
     public function editText($id)
     {
         $text = verificationText::find($id);
-        return view('admin.setting.text.edit',compact('text'));
+        return view('admin.setting.text.edit', compact('text'));
     }
 
-    public function updateText(Request $request,$id)
+    public function updateText(Request $request, $id)
     {
         $text = verificationText::find($id);
         $text->text = $request->text;
         $text->save();
-        return redirect()->back()->with('success','Text updated successfully');
+        return redirect()->back()->with('success', 'Text updated successfully');
     }
 
     public function easypaisa()
     {
-        $easypaisa = EasyPaisaMangement::where('status','1')->get();
-        return view('admin.setting.easypaisa.index',compact('easypaisa'));
+        $easypaisa = EasyPaisaMangement::where('status', '1')->get();
+        return view('admin.setting.easypaisa.index', compact('easypaisa'));
     }
 
     public function editEasypaisa($id)
     {
         $easypaisa = EasyPaisaMangement::find($id);
-        return view('admin.setting.easypaisa.edit',compact('easypaisa'));
+        return view('admin.setting.easypaisa.edit', compact('easypaisa'));
     }
 
-    public function updateEasypaisa(Request $request,$id)
+    public function updateEasypaisa(Request $request, $id)
     {
         $easypaisa = EasyPaisaMangement::find($id);
         $easypaisa->easy_num = $request->esay_num;
         $easypaisa->easy_name = $request->esay_name;
         $easypaisa->sava();
-        return redirect()->back()->with('success','Easypaisa details updated');
+        return redirect()->back()->with('success', 'Easypaisa details updated');
     }
 
     public function homePlans()
     {
-        $home_plans = PlanDetails::where('status','1')->get();
-        return view('admin.setting.plan.all',compact('home_plans'));
+        $home_plans = PlanDetails::where('status', '1')->get();
+        return view('admin.setting.plan.all', compact('home_plans'));
     }
 
     public function editPlan($id)
     {
         $home_plan = PlanDetails::find($id);
-        return view('admin.setting.plan.edit',compact('home_plan'));
+        return view('admin.setting.plan.edit', compact('home_plan'));
     }
 
-    public function updatePlan(Request $request,$id)
+    public function updatePlan(Request $request, $id)
     {
         $home_plan = PlanDetails::find($id);
         $home_plan->plan_name = $request->plan_name;
         $home_plan->details = $request->details;
         $home_plan->save();
-        return redirect()->back()->with('success','Plans details updated');
+        return redirect()->back()->with('success', 'Plans details updated');
     }
 
+    public function whatsapp()
+    {
+        $whatsapp = Whatsapp::first();
+        return view('admin.setting.whatsapp', compact('whatsapp'));
+    }
+
+    public function edit_whatsapp($id)
+    {
+        $whatsapp = Whatsapp::find($id);
+        return view('admin.setting.edit_whatsapp', compact('whatsapp'));
+    }
+
+    public function update_whatsapp(Request $request, $id)
+    {
+        $whatsapp = Whatsapp::find($id);
+        $whatsapp->whatsapp_link = $request->whatsapp_link;
+        $whatsapp->save();
+        return redirect()->route('Admin.Whatsapp.Setting')->with('success', 'Whatsapp number updated successfully');
+    }
 }
