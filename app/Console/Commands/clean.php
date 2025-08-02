@@ -5,12 +5,12 @@ namespace App\Console\Commands;
 use App\Models\admin\Plans;
 use App\Models\admin\Whatsapp;
 use App\Models\User;
-use App\Models\user\EasyPaisaMangement;
-use App\Models\user\officialChannel;
-use App\Models\user\PlanDetails;
-use App\Models\user\ReferalLevel;
-use App\Models\user\Setting;
-use App\Models\user\verificationText;
+use App\Models\User\EasyPaisaMangement;
+use App\Models\User\officialChannel;
+use App\Models\User\PlanDetails;
+use App\Models\User\ReferalLevel;
+use App\Models\User\Setting;
+use App\Models\User\verificationText;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Hash;
@@ -153,10 +153,13 @@ class clean extends Command
         $whatsapp->save();
 
         // official Channel link
-        $officialChannel = new officialChannel();
-        $officialChannel->channel_link = 'https://www.youtube.com/channel/UC1234567890';
-        $officialChannel->status = 'active';
-        $officialChannel->save();
+
+        $channel = new officialChannel();
+        $channel->channel_link = 'https://www.youtube.com/channel/UC123456789';
+        $channel->status = 'active';
+        $channel->save();
+
+
 
         $this->info('Database cleaned and seeded successfully.');
     }

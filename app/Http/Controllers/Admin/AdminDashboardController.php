@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 
-use App\Models\user\ReferalLevel;
-use App\Models\user\Setting;
+use App\Models\User\ReferalLevel;
+use App\Models\User\Setting;
 use Illuminate\Http\Request;
 
 class AdminDashboardController extends Controller
