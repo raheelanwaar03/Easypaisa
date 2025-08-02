@@ -257,6 +257,7 @@
                             <li><a href="{{ route('Admin.Widthraw.Limits') }}">Widthraw Limites</a></li>
                             <li><a href="{{ route('Admin.All.Home.Plans') }}">Home Plans Details</a></li>
                             <li><a href="{{ route('Admin.Whatsapp.Setting') }}">Whatsapp Setting</a></li>
+                            <li><a href="{{ route('Admin.Edit.Official.Channel.Link') }}">Channel Link</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">

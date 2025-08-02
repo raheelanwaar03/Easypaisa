@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\admin\Whatsapp;
 use App\Models\User\EasyPaisaMangement;
+use App\Models\user\officialChannel;
 use App\Models\User\PlanDetails;
 use App\Models\User\ReferalLevel;
 use App\Models\User\Setting;
@@ -148,5 +149,19 @@ class SettingController extends Controller
         $whatsapp->whatsapp_link = $request->whatsapp_link;
         $whatsapp->save();
         return redirect()->route('Admin.Whatsapp.Setting')->with('success', 'Whatsapp number updated successfully');
+    }
+
+    public function officialChannel()
+    {
+        $officialChannel = officialChannel::first();
+        return view('admin.setting.official_channel', compact('officialChannel'));
+    }
+
+    public function updateOfficialChannel(Request $request, $id)
+    {
+        $officialChannel = officialChannel::find($id);
+        $officialChannel->channel_link = $request->channel_link;
+        $officialChannel->save();
+        return redirect()->back()->with('success', 'Official Channel link updated successfully');
     }
 }

@@ -6,6 +6,7 @@ use App\Models\admin\Plans;
 use App\Models\admin\Whatsapp;
 use App\Models\User;
 use App\Models\User\EasyPaisaMangement;
+use App\Models\user\officialChannel;
 use App\Models\User\PlanDetails;
 use App\Models\User\ReferalLevel;
 use App\Models\User\Setting;
@@ -150,6 +151,14 @@ class clean extends Command
         $whatsapp->whatsapp_link = 'https://api.whatsapp.com/send?phone=923000000000&text=Hello%20Admin';
         $whatsapp->status = 'active';
         $whatsapp->save();
+
+        // official Channel link
+
+        $channel = new officialChannel();
+        $channel->channel_link = 'https://www.youtube.com/channel/UC123456789';
+        $channel->status = 'active';
+        $channel->save();
+
 
 
         $this->info('Database cleaned and seeded successfully.');

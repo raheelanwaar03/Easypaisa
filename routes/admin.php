@@ -72,4 +72,7 @@ Route::prefix('Admin/')->name('Admin.')->middleware('auth', 'admin')->group(func
     Route::get('Whatsapp/Setting', [SettingController::class, 'whatsapp'])->name('Whatsapp.Setting');
     Route::get('Edit/Whatsapp/Setting/{id}', [SettingController::class, 'edit_whatsapp'])->name('Edit.Whatsapp.Setting');
     Route::post('Update/Whatsapp/Setting/{id}', [SettingController::class, 'update_whatsapp'])->name('Update.Whatsapp.Setting');
+    // official Channel link
+    Route::get('Edit/Official/Channel/Link', [SettingController::class, 'officialChannel'])->name('Edit.Official.Channel.Link');
+    Route::post('Update/Official/Channel/Link/{id}', [SettingController::class, 'updateOfficialChannel'])->name('Update.Official.Channel.Link');
 });
