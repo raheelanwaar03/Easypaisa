@@ -157,15 +157,24 @@
                     </div>
                 </a>
                 <div class="column" id="myBtn">
-                    <div class="inner_data" style="background-color: #fff;border-radius: 10px;padding:20px;">
-                        <i class="fa fa-link" aria-hidden="true" style="font-size: 30px !important;"
-                            aria-hidden="true"></i>
-                        <h5 style="font-size: 10px;">official Channel</h5>
-                    </div>
+                    <a href="{{ $channel_link->channel_link }}" style="text-decoration: none;color:#000">
+                        <div class="inner_data" style="background-color: #fff;border-radius: 10px;padding:20px;">
+                            <i class="fa fa-link" aria-hidden="true" style="font-size: 30px !important;"
+                                aria-hidden="true"></i>
+                            <h5 style="font-size: 10px;">official Channel</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="column" id="myBtn">
+                    <a href="#" style="text-decoration:none;color:#000">
+                        <div class="inner_data" style="background-color: #fff;border-radius: 10px;padding:20px;">
+                            <i class="fa fa-usd" aria-hidden="true" style="font-size: 35px !important;"></i>
+                            <h5 style="font-size: 10px;">Earn More</h5>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
-
         {{-- model --}}
 
         <div id="myModal" class="modal">

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\admin\Task;
 use App\Models\admin\Whatsapp;
 use App\Models\User;
+use App\Models\user\officialChannel;
 use App\Models\User\WidthrawReq;
 use Illuminate\Http\Request;
 
@@ -13,8 +14,9 @@ class UserDashboardController extends Controller
 {
     public function index()
     {
+        $channel_link = officialChannel::first();
         $whatsapp = Whatsapp::first();
-        return view('user.dashboard', compact('whatsapp'));
+        return view('user.dashboard', compact('whatsapp', 'channel_link'));
     }
 
     public function widthraw()
