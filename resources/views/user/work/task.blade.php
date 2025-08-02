@@ -32,12 +32,12 @@
                             src="{{ asset('assets/images/gift.png') }}" alt="gift" width="15px"> <span
                             style="font-size: 12px;">My Rewards</span></div>
                     <div class="column_box" style="float: left;text-align: left;padding-top: 5px;"><span
-                            style="font-size: 11px;">Wallet Balance</span></div>
+                            style="font-size: 11px;">Available Balance</span></div>
                     <div class="column_box" style="float: right;padding-top: 5px;">
                         &nbsp;
                     </div>
                     <div class="column_box" style="float: left;padding-top: 5px;">
-                        <span style=""><b>Rs.{{ wallet_balance() }}</b></span> <i
+                        <span style=""><b>Rs.{{ auth()->user()->balance }}</b></span> <i
                             class="fa fa-arrow-circle-o-right" aria-hidden="true" style="color: #000 !important;"></i>
                     </div>
                     <div class="column_box" style="float: right;text-align: right;padding-top: 5px;">&nbsp;</div>
@@ -46,14 +46,13 @@
                         <span style="font-size: 12px;padding-top: 5px;">Update Just Now</span>
                     </div>
                     <div class="column_box" style="float: right;text-align: right;padding-top: 5px;">
-                        <a href="{{ route('User.Daily.Profit') }}"><button
-                                style="background-color: #2ABC71;border-radius: 10px;border: none;color: #fff;font-size:15px;padding:8px 12px;cursor: pointer;">Daily
-                                Profit</button></a>
+                        <a href=""><button
+                                style="background-color: #2ABC71;border-radius: 10px;border: none;color: #fff;font-size:11px;padding:2px 10px;">Add
+                                Cash</button></a>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="container" style="margin-top: 25px;margin-bottom: 90px;">
             <div class="row">
                 @foreach ($tasks as $task)
@@ -66,7 +65,7 @@
                                 <li class="list-group-item">{{ $task->description }}</li>
                             </ul>
                             <div class="card-footer">
-                                <a href="{{ $task->link }}" target="_blank" class="btn btn-success">Share</a>
+                                <a href="{{ $task->link }}" target="_blank" class="btn btn-success"></a>
                             </div>
                         </div>
                     </div>

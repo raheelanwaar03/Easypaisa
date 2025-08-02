@@ -156,6 +156,14 @@
                         <h5 style="font-size: 10px;">official Channel</h5>
                     </div>
                 </div>
+                <div class="column" id="myBtn">
+                    <a href="#" style="text-decoration:none;color:#000">
+                        <div class="inner_data" style="background-color: #fff;border-radius: 10px;padding:20px;">
+                            <i class="fa fa-usd" aria-hidden="true" style="font-size: 35px !important;"></i>
+                            <h5 style="font-size: 10px;">Earn More</h5>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -203,7 +211,7 @@
                                             <i class="fa fa-handshake-o" aria-hidden="true"
                                                 style="font-size: 35px !important;"></i>
                                             <br />
-                                            <span style="font-size: 15px;">Invest & Earn</span>
+                                            <span style="font-size: 12px;">Invest & Earn</span>
                                         </a>
                                     </div>
                                 </div>
@@ -214,66 +222,51 @@
                                             <i class="fa fa-superpowers" aria-hidden="true"
                                                 style="font-size: 35px !important;"></i>
                                             <br />
-                                            <span style="font-size: 15px;">Active Plans</span>
+                                            <span style="font-size: 12px;">Active Plans</span>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="slider__slide">
-                            <h1></h1>
-                        </div>
-                        <div class="slider__slide"></div>
-                        <div class="slider__slide"></div>
                     </div>
-                </div>
-                <div class="slider__dots">
-                    <a href="#" class="slider__indicator"></a>
-                    <a href="#" class="slider__dot" data-pos="0"></a>
-                    <a href="#" class="slider__dot" data-pos="1"></a>
-                    <!-- <a href="#" class="slider__dot" data-pos="2"></a> -->
-                    <!-- <a href="#" class="slider__dot" data-pos="3"></a> -->
                 </div>
             </div>
 
+            @include('layouts.links')
+
         </div>
-    </div>
 
-    @include('layouts.links')
+        <footer>
+            <script>
+                // Get the modal
+                var modal = document.getElementById("myModal");
 
-    </div>
+                // Get the button that opens the modal
+                var btn = document.getElementById("myBtn");
 
-    <footer>
-        <script>
-            // Get the modal
-            var modal = document.getElementById("myModal");
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
 
-            // Get the button that opens the modal
-            var btn = document.getElementById("myBtn");
+                // When the user clicks the button, open the modal
+                btn.onclick = function() {
+                    modal.style.display = "block";
+                }
 
-            // Get the <span> element that closes the modal
-            var span = document.getElementsByClassName("close")[0];
-
-            // When the user clicks the button, open the modal
-            btn.onclick = function() {
-                modal.style.display = "block";
-            }
-
-            // When the user clicks on <span> (x), close the modal
-            span.onclick = function() {
-                modal.style.display = "none";
-            }
-
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function(event) {
-                if (event.target == modal) {
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() {
                     modal.style.display = "none";
                 }
-            }
-        </script>
-    </footer>
 
-    <script src="{{ asset('assets/js/slider.js') }}"></script>
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script>
+        </footer>
+
+        <script src="{{ asset('assets/js/slider.js') }}"></script>
 </body>
 
 </html>
