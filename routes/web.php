@@ -16,10 +16,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    $whatsapp = \App\Models\admin\Whatsapp::first();
+    if ($whatsapp) {
+        return view('welcome', compact('whatsapp'));
+    }
     return view('welcome');
 });
 
-Route::post('Store/Package/Fees',[RegisteredUserController::class,'storeFees'])->name('Store.Package.Fees');
+Route::post('Store/Package/Fees', [RegisteredUserController::class, 'storeFees'])->name('Store.Package.Fees');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -27,6 +31,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
-require __DIR__.'/user.php';
-require __DIR__.'/admin.php';
+require __DIR__ . '/auth.php';
+require __DIR__ . '/user.php';
+require __DIR__ . '/admin.php';

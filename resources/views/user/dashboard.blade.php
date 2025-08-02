@@ -117,7 +117,7 @@
                     <a href="{{ route('User.Widthraw.Amount') }}" style="text-decoration:none;color:#000">
                         <div class="inner_data" style="background-color: #fff;border-radius: 10px;padding:20px;">
                             <i class="fa fa-money" aria-hidden="true" style="font-size: 30px !important;"></i>
-                            <h5 style="font-size: 11px;">Widthraw Money</h5>
+                            <h5 style="font-size: 10px;">Widthraw Money</h5>
                         </div>
                     </a>
                 </div>
@@ -134,6 +134,26 @@
                     <div class="inner_data" style="background-color: #fff;border-radius: 10px;padding:20px;">
                         <i class="fa fa-user-plus" style="font-size: 30px !important;" aria-hidden="true"></i>
                         <h5 style="font-size: 11px;">Invite & Earn</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <a href="#" style="text-decoration:none;color:#000">
+                    <div class="column">
+                        <div class="inner_data" style="background-color: #fff;border-radius: 10px;padding:20px;">
+                            <a href="{{ $whatsapp->whatsapp_link }}" style="text-decoration: none;color:#000">
+                                <i class="fa fa-phone" aria-hidden="true" style="font-size: 30px !important;"></i>
+                                <!-- <h5 style="font-size: 11px;">Easycash Loan</h5> -->
+                                <h5 style="font-size: 11px;">Contact Us</h5>
+                            </a>
+                        </div>
+                    </div>
+                </a>
+                <div class="column" id="myBtn">
+                    <div class="inner_data" style="background-color: #fff;border-radius: 10px;padding:20px;">
+                        <i class="fa fa-link" aria-hidden="true" style="font-size: 30px !important;"
+                            aria-hidden="true"></i>
+                        <h5 style="font-size: 10px;">official Channel</h5>
                     </div>
                 </div>
             </div>
@@ -195,17 +215,6 @@
                                                 style="font-size: 35px !important;"></i>
                                             <br />
                                             <span style="font-size: 15px;">Active Plans</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="column_slider">
-                                    <div class="inner_data">
-                                        <a href="{{ route('User.Convert.Balance') }}"
-                                            style="text-decoration: none;color:black">
-                                            <i class="fa fa-money" aria-hidden="true"
-                                                style="font-size: 35px !important;"></i>
-                                            <br />
-                                            <span style="font-size: 15px;">Convert Balance</span>
                                         </a>
                                     </div>
                                 </div>
