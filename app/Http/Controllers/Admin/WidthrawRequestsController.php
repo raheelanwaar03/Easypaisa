@@ -11,20 +11,20 @@ class WidthrawRequestsController extends Controller
 {
     public function pending()
     {
-        $widthraws = WidthrawReq::where('status','pending')->get();
-        return view('admin.widthraw.pending',compact('widthraws'));
+        $widthraws = WidthrawReq::where('status', 'pending')->get();
+        return view('admin.widthraw.pending', compact('widthraws'));
     }
 
     public function approved()
     {
-        $widthraws = WidthrawReq::where('status','approved')->get();
-        return view('admin.widthraw.approved',compact('widthraws'));
+        $widthraws = WidthrawReq::where('status', 'approved')->get();
+        return view('admin.widthraw.approved', compact('widthraws'));
     }
 
     public function rejected()
     {
-        $widthraws = WidthrawReq::where('status','rejected')->get();
-        return view('admin.widthraw.rejected',compact('widthraws'));
+        $widthraws = WidthrawReq::where('status', 'rejected')->get();
+        return view('admin.widthraw.rejected', compact('widthraws'));
     }
 
     public function makePending($id)
@@ -32,7 +32,7 @@ class WidthrawRequestsController extends Controller
         $widthraw = WidthrawReq::find($id);
         $widthraw->status = 'pending';
         $widthraw->save();
-        return redirect()->with('success','Widthraw Request Made Pending now');
+        return redirect()->with('success', 'Widthraw Request Made Pending now');
     }
 
     public function makeApproved($id)
@@ -41,11 +41,10 @@ class WidthrawRequestsController extends Controller
         $widthraw->status = 'approved';
         $widthraw->save();
         // deducting balance from user account
-        $user = User::where('id',$widthraw->user_id)->first();
+        $user = User::where('id', $widthraw->user_id)->first();
         $user->balance -= $widthraw->amount;
         $user->save();
-
-        return redirect()->with('success','Widthraw Request Made Approved now');
+        return redirect()->back()->with('success', 'Widthraw Request Approved Now');
     }
 
     public function makeRejected($id)
@@ -53,7 +52,6 @@ class WidthrawRequestsController extends Controller
         $widthraw = WidthrawReq::find($id);
         $widthraw->status = 'Rejected';
         $widthraw->save();
-        return redirect()->with('success','Widthraw Request Made Rejected now');
+        return redirect()->back()->with('success', 'Widthraw Request Rejected Now');
     }
-
 }
