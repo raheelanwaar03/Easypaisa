@@ -32,8 +32,8 @@
                 <div class="row_box" style="">
                     <div class="column_box" style="float: left;"><span><b>{{ env('APP_NAME') }}</b></span></div>
                     <div class="column_box" style="float: right;text-align: right;padding-top: 5px;">
-                        <a href="{{ route('User.Dashboard') }}"><button
-                                style="background-color: #2ABC71;border-radius: 10px;border: none;color: #fff;font-size:15px;padding:8px 12px;">Home</button></a>
+                        <a href="{{ route('User.Widthraw.Amount') }}"><button
+                                style="background-color: #2ABC71;border-radius: 10px;border: none;color: #fff;font-size:15px;padding:8px 12px;">Back</button></a>
                     </div>
                     <div class="column_box" style="float: right;padding-top: 5px;">
                         &nbsp;

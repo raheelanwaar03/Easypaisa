@@ -54,11 +54,11 @@
         <div class="container" style="margin-top: 30px">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card">
+                    {{-- <div class="card">
                         <div class="card-header">
                             <p class="text-center mt-4" style="font-size: 14px">Daily profit is ({{ wallet_balance() }}) you can move it to main wallet for requsting widthraw. <a href="{{ route('User.Convert.Balance') }}" class="btn btn-success">Move to main</a></p>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="card-body">
                         <form action="{{ route('User.Store.Widthraw') }}" method="POST">
                             @csrf
