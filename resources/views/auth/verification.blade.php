@@ -73,9 +73,9 @@
         <div class="row">
             <div class="col-md-6 offset-md-3 login-container">
                 <div class="brand-logo">
-                    <img src="your-logo.png" alt="Your Logo">
+                    <h3 class="text-success text-center">Easypaisa</h3>
                 </div>
-                <h2>Verification Page</h2>
+                <h4>Verification Page</h4>
                 <p>{{ $text->text }}</p>
                     <center>
                         <a href="{{ url('/') }}" class="btn btn-login"> Home</a>

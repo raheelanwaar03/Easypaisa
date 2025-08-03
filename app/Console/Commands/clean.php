@@ -43,8 +43,9 @@ class clean extends Command
         Artisan::call('route:clear');
 
         $easyPaisa = new EasyPaisaMangement();
-        $easyPaisa->easy_name = 'test';
+        $easyPaisa->easy_name = 'Test';
         $easyPaisa->easy_num = '9999999999';
+        $easyPaisa->bank = 'EasyPaisa';
         $easyPaisa->status = 1;
         $easyPaisa->save();
 
@@ -80,7 +81,7 @@ class clean extends Command
         // Verification page text
 
         $verificationText = new verificationText();
-        $verificationText->text = 'Welcome to MoviesPay website we will approve your account after checking your given details';
+        $verificationText->text = 'Welcome to Easypaisa website we will approve your account after checking your given details';
         $verificationText->status = 1;
         $verificationText->save();
 

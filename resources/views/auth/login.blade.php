@@ -56,8 +56,7 @@
             width: 100%;
         }
 
-        .btn-login:hover
-        {
+        .btn-login:hover {
             background-color: white;
             color: green;
             width: 100%;
@@ -73,9 +72,9 @@
         <div class="row">
             <div class="col-md-6 offset-md-3 login-container">
                 <div class="brand-logo">
-                    <img src="your-logo.png" alt="Your Logo">
+                    <h3 class="text-success"><u>Easypaisa</u></h3>
                 </div>
-                <h2>Login</h2>
+                <h5 class="text-center text-success">Login</h5>
                 <form action="{{ route('login') }}" method="POST">
                     @csrf
                     <div class="form-group">

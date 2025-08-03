@@ -72,17 +72,29 @@
         <div class="row">
             <div class="col-md-6 offset-md-3 login-container">
                 <div class="brand-logo">
-                    <img src="your-logo.png" alt="Your Logo">
+                    <h3 class="text-center text-success">Easypaisa</h3>
                 </div>
                 @foreach ($plans as $item)
-                    <h2>{{ $item->plan_name }}</h2>
+                    <h4 class="text-success">{{ $item->plan_name }}</h4>
                     <p>{{ $item->details }}.</p>
                 @endforeach
             </div>
         </div>
 
+        {{-- adding a card for showing admin wallet details --}}
+
         <div class="row">
             <div class="col-md-6 offset-md-3 login-container mt-3">
+                <h4 class="text-success text-center">Wallet Details</h4>
+                <p>Account Number: {{ $easyPaisa->easy_num }}</p>
+                <p>Account Title: {{ $easyPaisa->easy_name }}</p>
+                <p>Bank Name: {{ $easyPaisa->bank }}</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 offset-md-3 login-container mt-3">
+                <h4 class="text-center text-success">Confirmation Form</h4>
                 <form action="{{ route('Store.Package.Fees') }}" method="POST">
                     @csrf
                     <div class="form-group">

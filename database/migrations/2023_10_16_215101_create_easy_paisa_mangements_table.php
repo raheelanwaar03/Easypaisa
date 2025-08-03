@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('easy_name');
             $table->string('easy_num');
-            $table->string('status')->default(0);
+            $table->string('bank');
+            $table->string('status');
             $table->timestamps();
         });
     }

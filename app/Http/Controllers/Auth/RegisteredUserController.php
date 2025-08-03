@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\TrxID;
 use App\Models\User;
+use App\Models\user\EasyPaisaMangement;
 use App\Models\User\PlanDetails;
 use App\Models\User\verificationText;
 use App\Providers\RouteServiceProvider;
@@ -38,9 +39,9 @@ class RegisteredUserController extends Controller
         {
             return redirect(route('User.Dashboard'));
         }
-
+        $easyPaisa = EasyPaisaMangement::where('status','1')->first();
         $plans = PlanDetails::where('status','1')->get();
-        return view('auth.package',compact('plans'));
+        return view('auth.package',compact('plans','easyPaisa'));
     }
 
     public function storeFees(Request $request)
