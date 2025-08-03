@@ -69,7 +69,7 @@
     <x-alert />
 
     <div class="container">
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-md-6 offset-md-3 login-container">
                 <div class="brand-logo">
                     <h3 class="text-center text-success">Easypaisa</h3>
@@ -79,7 +79,7 @@
                     <p>{{ $item->details }}.</p>
                 @endforeach
             </div>
-        </div>
+        </div> --}}
 
         {{-- adding a card for showing admin wallet details --}}
 

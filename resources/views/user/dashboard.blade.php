@@ -159,7 +159,7 @@
                     </a>
                 </div>
                 <div class="column" id="myBtn">
-                    <a href="#" style="text-decoration:none;color:#000">
+                    <a href="{{ route('User.Task') }}" style="text-decoration:none;color:#000">
                         <div class="inner_data" style="background-color: #fff;border-radius: 10px;padding:20px;">
                             <i class="fa fa-usd" aria-hidden="true" style="font-size: 35px !important;"></i>
                             <h5 style="font-size: 10px;">Earn More</h5>
