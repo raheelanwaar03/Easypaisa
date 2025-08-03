@@ -69,9 +69,9 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>Amount</th>
-                                        <th>Account Number</th>
-                                        <th>Account Type</th>
-                                        <th>Process</th>
+                                        <th>Number</th>
+                                        <th>Type</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>

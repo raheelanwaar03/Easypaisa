@@ -15,10 +15,10 @@
                                 <table id="example" class="display" style="min-width: 845px">
                                     <thead>
                                         <tr>
-                                            <th>Receiver Name</th>
-                                            <th>Receiver Number</th>
-                                            <th>Bank Type</th>
-                                            <th>Widthraw Amount</th>
+                                            <th>Name</th>
+                                            <th>Num</th>
+                                            <th>Bank</th>
+                                            <th>Amount</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
