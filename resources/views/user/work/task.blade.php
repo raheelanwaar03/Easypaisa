@@ -37,7 +37,7 @@
                         &nbsp;
                     </div>
                     <div class="column_box" style="float: left;padding-top: 5px;">
-                        <span style=""><b>Rs.{{ auth()->user()->balance }}</b></span> <i
+                        <span style=""><b>Rs.{{ wallet_balance() }}</b></span> <i
                             class="fa fa-arrow-circle-o-right" aria-hidden="true" style="color: #000 !important;"></i>
                     </div>
                     <div class="column_box" style="float: right;text-align: right;padding-top: 5px;">&nbsp;</div>
@@ -46,9 +46,8 @@
                         <span style="font-size: 12px;padding-top: 5px;">Update Just Now</span>
                     </div>
                     <div class="column_box" style="float: right;text-align: right;padding-top: 5px;">
-                        <a href=""><button
-                                style="background-color: #2ABC71;border-radius: 10px;border: none;color: #fff;font-size:11px;padding:2px 10px;">Add
-                                Cash</button></a>
+                        <a href="{{ route('User.Withdraw.Return') }}"><button
+                                style="background-color: #2ABC71;border-radius: 10px;border: none;color: #fff;font-size:11px;padding:2px 10px;">Withdraw</button></a>
                     </div>
                 </div>
             </div>
@@ -61,11 +60,15 @@
                             <img class="card-img-top" src="{{ asset('images/' . $task->image) }}" height="250px"
                                 width="277px" alt="Card image cap">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">{{ $task->title }}</li>
-                                <li class="list-group-item">{{ $task->description }}</li>
+                                <li class="list-group-item">
+                                    {{ $task->title }}
+                                    <span style="float: right;">{{ $task->price }}</span>
+                                </li>
                             </ul>
                             <div class="card-footer">
-                                <a href="{{ $task->link }}" target="_blank" class="btn btn-success"></a>
+                                <a href="{{ route('User.Extera.Money', $task->id) }}"
+                                    onclick="window.open('{{ $task->link }}', '_blank')"
+                                    class="btn btn-success">Earn</a>
                             </div>
                         </div>
                     </div>

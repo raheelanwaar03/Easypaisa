@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('wallets', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
-            $table->string('wallet');
+            $table->string('product_id');
+            $table->string('amount');
             $table->timestamps();
         });
     }

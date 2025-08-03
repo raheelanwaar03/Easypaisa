@@ -7,6 +7,7 @@ use App\Models\admin\Task;
 use App\Models\admin\Whatsapp;
 use App\Models\User;
 use App\Models\User\officialChannel;
+use App\Models\User\Wallet;
 use App\Models\User\WidthrawReq;
 use Illuminate\Http\Request;
 
@@ -69,5 +70,27 @@ class UserDashboardController extends Controller
     {
         $referrals = User::where('referral', auth()->user()->email)->get();
         return view('user.work.team', compact('referrals'));
+    }
+
+    public function exter_money($id)
+    {
+        $task_item = Task::find($id);
+        // check if this task has already in wallet today
+        $task_check = Wallet::where('user_id', auth()->user()->id)->where('product_id', $task_item->id)->whereDate('created_at', today())->first();
+        if ($task_check != null) {
+            return redirect()->back()->with('error', 'You have already got this task amount today');
+        }
+        // saving in wallet
+        $wallet = new Wallet();
+        $wallet->user_id = auth()->user()->id;
+        $wallet->product_id = $task_item->id;
+        $wallet->amount = $task_item->price;
+        $wallet->save();
+        return redirect()->back()->with('success', 'You have got task amount successfully');
+    }
+
+    public function withdraw_return()
+    {
+        return redirect()->back()->with('error', 'For Withdraw Your Level Must Be 10');
     }
 }

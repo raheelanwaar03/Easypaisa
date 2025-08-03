@@ -25,7 +25,7 @@ class AdminTaskController extends Controller
             'title' => 'required',
             'image' => 'required',
             'link' => 'required',
-            'description' => 'required'
+            'price' => 'required'
         ]);
 
         $image = $validated['image'];
@@ -35,7 +35,7 @@ class AdminTaskController extends Controller
         $task = new Task();
         $task->title = $validated['title'];
         $task->link = $validated['link'];
-        $task->description = $validated['description'];
+        $task->price = $validated['price'];
         $task->image = $imageName;
         $task->save();
         return redirect()->back()->with('success', 'Task added successfully');

@@ -25,9 +25,9 @@
                                             placeholder="Enter Task Link" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Description</label>
-                                        <input type="text" name="description" class="form-control"
-                                            placeholder="Enter Task Description" required>
+                                        <label for="">Price</label>
+                                        <input type="text" name="price" class="form-control"
+                                            placeholder="Enter Task price" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Image</label>
