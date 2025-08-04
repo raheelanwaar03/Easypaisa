@@ -23,8 +23,8 @@ class InvestmentController extends Controller
     public function buyPlan($id)
     {
         $plan = Plans::find($id);
-        $easypaisa = EasyPaisaMangement::where('status','active')->first();
-        return view('user.invest.buyPlan',compact('plan','esaypaisa'));
+        $easyPaisa = EasyPaisaMangement::where('status','active')->first();
+        return view('user.invest.buyPlan',compact('plan','easyPaisa'));
     }
 
     public function storePlan(Request $request,$id)
