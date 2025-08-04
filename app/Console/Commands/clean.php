@@ -46,7 +46,7 @@ class clean extends Command
         $easyPaisa->easy_name = 'Test';
         $easyPaisa->easy_num = '9999999999';
         $easyPaisa->bank = 'EasyPaisa';
-        $easyPaisa->status = 1;
+        $easyPaisa->status = 'active';
         $easyPaisa->save();
 
         // Plan Details
