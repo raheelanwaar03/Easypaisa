@@ -78,12 +78,7 @@ class InvestmentController extends Controller
                 }
 
             }
-            // check if user refer someone in two days or not
         }
-
-
-
-
 
         $plans = BuyPlan::where('user_id',auth()->user()->id)->where('status','approved')->get();
         $investment = 0;
@@ -98,10 +93,9 @@ class InvestmentController extends Controller
         {
             $profit = $investment * 10 / 100;
 
-            $wallet = new Wallet();
-            $wallet->user_id = auth()->user()->id;
-            $wallet->wallet += $profit;
-            $wallet->save();
+            $user = User::where('id',auth()->user()->id)->first();
+            $user->balance += $profit;
+            $user->save();
 
             $today_profit = new GivenProfit();
             $today_profit->user_id = auth()->user()->id;
