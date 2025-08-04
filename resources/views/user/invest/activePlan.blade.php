@@ -63,7 +63,7 @@
 
 <body style="background-color: #eee !important;height: 740px;">
 
-<x-alert />
+    <x-alert />
 
     <div class="container" style="border: 0px solid red;background-color: #eee !important;">
         <div class="topnav">
@@ -78,6 +78,7 @@
             <a href="#" style="float: right;"><i class="fa fa-search" style="color: #fff !important;"></i></a>
 
         </div>
+
         <div class="wrapper_one" style="background-color: #2ABC71;width: 100%;height: 170px;padding-left: 10px;">
             <div>&nbsp;</div>
             <div class="inner_box_div"
@@ -88,7 +89,7 @@
                             src="{{ asset('assets/images/gift.png') }}" alt="gift" width="15px"> <span
                             style="font-size: 12px;">My Rewards</span></div>
                     <div class="column_box" style="float: left;text-align: left;padding-top: 5px;"><span
-                            style="font-size: 11px;">Wallet Balance</span></div>
+                            style="font-size: 11px;">Available Balance</span></div>
                     <div class="column_box" style="float: right;padding-top: 5px;">
                         &nbsp;
                     </div>
@@ -103,7 +104,8 @@
                     </div>
                     <div class="column_box" style="float: right;text-align: right;padding-top: 5px;">
                         <a href="{{ route('User.Daily.Profit') }}"><button
-                                style="background-color: #2ABC71;border-radius: 10px;border: none;color: #fff;font-size:15px;padding:8px 12px;cursor: pointer;">Daily Profit</button></a>
+                                style="background-color: #2ABC71;border-radius: 10px;border: none;color: #fff;font-size:15px;padding:8px 12px;cursor: pointer;">Daily
+                                Profit</button></a>
                     </div>
                 </div>
             </div>
@@ -111,7 +113,7 @@
         <div class="wrapper_two" style="margin: 0px 10px;">
             <div class="row">
                 @forelse ($plans as $item)
-                    <div class="column">
+                    <div class="column my-3">
                         <div class="inner_data" style="background-color: #fff;border-radius: 10px;padding:20px;">
                             <h3>{{ $item->plan_name }}</h3>
                             <h3>Investment: {{ $item->plan_investment }}</h3>

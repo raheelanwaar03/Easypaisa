@@ -41,7 +41,7 @@
                 <a href="{{ route('profile.edit') }}" style="text-decoration: none;color:black">
                     <i class="fa fa-user"></i>
                     <br>
-                    <span style="font-size: 12px;">My Account</span>
+                    <span style="font-size: 12px;">Profile</span>
                 </a>
             </div>
         </div>
