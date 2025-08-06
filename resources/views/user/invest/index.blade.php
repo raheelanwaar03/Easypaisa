@@ -16,8 +16,8 @@
     <x-alert />
     <div class="container" style="border: 0px solid red;background-color: #eee !important;">
         <div class="topnav">
-            <a href="#"
-                style="text-align: center;margin-left:180px;color: #fff;"><span><b>{{ env('APP_NAME') }}</b></span></a>
+            <a href="{{ route('User.Dashboard') }}" style="text-align: center;margin-left:180px;color: #fff;"><span><img
+                        src="{{ asset('assets/image/Easypaisa.png') }}" height="40px" width="40px"></span></a>
             <a href="#" style="float: right;"><i class="fa fa-bell-o" style="color: #fff !important;"></i></a>
             <a href="#" style="float: right;"><i class="fa fa-search" style="color: #fff !important;"></i></a>
 
@@ -47,7 +47,8 @@
                     </div>
                     <div class="column_box" style="float: right;text-align: right;padding-top: 5px;">
                         <a href="{{ route('User.Daily.Profit') }}"><button
-                                style="background-color: #2ABC71;border-radius: 10px;border: none;color: #fff;font-size:15px;padding:8px 12px;cursor: pointer;">Daily Profit</button></a>
+                                style="background-color: #2ABC71;border-radius: 10px;border: none;color: #fff;font-size:15px;padding:8px 12px;cursor: pointer;">Daily
+                                Profit</button></a>
                     </div>
                 </div>
             </div>

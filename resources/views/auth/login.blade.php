@@ -72,7 +72,9 @@
         <div class="row">
             <div class="col-md-6 offset-md-3 login-container">
                 <div class="brand-logo">
-                    <h3 class="text-success"><u>Easypaisa</u></h3>
+                    <a href="{{ url('/') }}">
+                        <img src="{{ asset('assets/image/logo.png') }}">
+                    </a>
                 </div>
                 <h5 class="text-center text-success">Login</h5>
                 <form action="{{ route('login') }}" method="POST">
