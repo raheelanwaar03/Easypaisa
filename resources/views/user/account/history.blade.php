@@ -69,7 +69,6 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>Amount</th>
-                                        <th>Number</th>
                                         <th>Type</th>
                                         <th>Status</th>
                                     </tr>
@@ -79,7 +78,6 @@
                                         <tr>
                                             <td>{{ $item->user_name }}</td>
                                             <td>{{ $item->amount }}</td>
-                                            <td>{{ $item->account }}</td>
                                             <td>{{ $item->type }}</td>
                                             <td>{{ $item->status }}</td>
                                         </tr>

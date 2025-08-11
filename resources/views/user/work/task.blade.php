@@ -45,7 +45,7 @@
                         <span style="font-size: 12px;padding-top: 5px;">Update Just Now</span>
                     </div>
                     <div class="column_box" style="float: right;text-align: right;padding-top: 5px;">
-                        <a href="{{ route('User.Withdraw.Return') }}"><button
+                        <a href="{{ route('User.Widthraw.Amount') }}"><button
                                 style="background-color: #2ABC71;border-radius: 10px;border: none;color: #fff;font-size:11px;padding:2px 10px;">Withdraw</button></a>
                     </div>
                 </div>
