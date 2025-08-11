@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminTaskController;
 use App\Http\Controllers\Admin\PlansController;
+use App\Http\Controllers\admin\PlanTaskController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\WidthrawRequestsController;
 use Illuminate\Support\Facades\Route;
@@ -75,4 +76,9 @@ Route::prefix('Admin/')->name('Admin.')->middleware('auth', 'admin')->group(func
     // official Channel link
     Route::get('Edit/Official/Channel/Link', [SettingController::class, 'officialChannel'])->name('Edit.Official.Channel.Link');
     Route::post('Update/Official/Channel/Link/{id}', [SettingController::class, 'updateOfficialChannel'])->name('Update.Official.Channel.Link');
+    // Add real task
+    Route::get('Add/Plan/Task', [PlanTaskController::class, 'addTask'])->name('Add.Plan.Task');
+    Route::get('All/Plan/Task', [PlanTaskController::class, 'allTask'])->name('All.Plan.Task');
+    Route::get('Delete/Plan/Task/{id}', [PlanTaskController::class, 'deleteTask'])->name('Delete.Plan.Task');
+    Route::post('Store/Plan/Task', [PlanTaskController::class, 'storeTask'])->name('Store.Plan.Task');
 });
