@@ -73,7 +73,9 @@
         <div class="row">
             <div class="col-md-6 offset-md-3 login-container">
                 <div class="brand-logo">
-                    <img src="your-logo.png" alt="Your Logo">
+                    <a href="{{ url('/') }}">
+                        <img src="{{ asset('assets/image/logo.png') }}">
+                    </a>
                 </div>
                 <h2>Register New Account</h2>
                 <form action="{{ route('register') }}" method="POST">

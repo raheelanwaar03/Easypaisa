@@ -39,7 +39,7 @@ class RegisteredUserController extends Controller
         {
             return redirect(route('User.Dashboard'));
         }
-        $easyPaisa = EasyPaisaMangement::where('status','1')->first();
+        $easyPaisa = EasyPaisaMangement::where('status','active')->first();
         $plans = PlanDetails::where('status','1')->get();
         return view('auth.package',compact('plans','easyPaisa'));
     }
