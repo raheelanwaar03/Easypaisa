@@ -56,11 +56,11 @@
                 @foreach ($tasks as $task)
                     <div class="col-md-4 mb-5">
                         <div class="card mt-3" style="width: 28rem;">
-                            <img class="card-img-top" src="{{ asset('task/' . $task->image) }}" height="250px"
+                            <img class="card-img-top" src="{{ asset('images/' . $task->image) }}" height="250px"
                                 width="277px" alt="Card image cap">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
-                                    {{ $task->name }}
+                                    {{ $task->title }}
                                     <span style="float: right;">{{ $task->price }}</span>
                                 </li>
                             </ul>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\PlanTasks;
 use App\Models\admin\Task;
 use App\Models\admin\Whatsapp;
 use App\Models\User;
@@ -56,8 +57,14 @@ class UserDashboardController extends Controller
 
     public function task()
     {
-        $tasks = Task::get();
+        $tasks = PlanTasks::where('plan', auth()->user()->package)->get();
         return view('user.work.task', compact('tasks'));
+    }
+
+    public function earnMore()
+    {
+        $tasks = Task::get();
+        return view('user.work.earnMore', compact('tasks'));
     }
 
     public function history()

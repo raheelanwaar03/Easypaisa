@@ -116,7 +116,7 @@ class clean extends Command
         $plan->save();
 
         $plan = new Plans();
-        $plan->name = 'first';
+        $plan->name = 'Third';
         $plan->investment = 2000;
         $plan->total_profit = 2800;
         $plan->duration = 45;
@@ -139,7 +139,7 @@ class clean extends Command
         $user->name = 'User';
         $user->email = 'user@gmail.com';
         $user->referral = 'default';
-        $user->package = 'Dimond';
+        $user->package = 'first';
         $user->balance = '10';
         $user->mobile = '03000000000';
         $user->password = Hash::make('asdfasdf');
