@@ -36,7 +36,7 @@
                         &nbsp;
                     </div>
                     <div class="column_box" style="float: left;padding-top: 5px;">
-                        <span style=""><b>Rs.{{ wallet_balance() }}</b></span> <i
+                        <span style=""><b>Rs.{{ auth()->user()->balance }}</b></span> <i
                             class="fa fa-arrow-circle-o-right" aria-hidden="true" style="color: #000 !important;"></i>
                     </div>
                     <div class="column_box" style="float: right;text-align: right;padding-top: 5px;">&nbsp;</div>
@@ -65,7 +65,7 @@
                                 </li>
                             </ul>
                             <div class="card-footer">
-                                <a href="{{ route('User.Extera.Money', $task->id) }}"
+                                <a href="{{ route('User.Task.Profit', $task->id) }}"
                                     onclick="window.open('{{ $task->link }}', '_blank')"
                                     class="btn btn-success">Earn</a>
                             </div>

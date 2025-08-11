@@ -13,7 +13,8 @@ Route::prefix('User/')->name('User.')->middleware('auth', 'user')->group(functio
     Route::get('Widthraw/History', [UserDashboardController::class, 'history'])->name('Widthraw.History');
     Route::get('Team/Members', [UserDashboardController::class, 'team'])->name('Team.Members');
     Route::get('Task', [UserDashboardController::class, 'task'])->name('Task');
-    Route::get('Earn/More', [UserDashboardController::class, 'earnMore'])->name('Earn.More');
+    Route::get('Profit/{id}', [UserDashboardController::class, 'profit'])->name('Task.Profit');
+    Route::get('Earn/More/{id}', [UserDashboardController::class, 'earnMore'])->name('Earn.More');
     Route::get('Invest', [InvestmentController::class, 'index'])->name('Investment.Plans');
     // buy plan
     Route::get('Buy/Plan/{id}', [InvestmentController::class, 'buyPlan'])->name('Buy.Plan');

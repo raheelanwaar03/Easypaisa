@@ -7,9 +7,11 @@ use App\Models\admin\PlanTasks;
 use App\Models\admin\Task;
 use App\Models\admin\Whatsapp;
 use App\Models\User;
+use App\Models\user\History;
 use App\Models\User\officialChannel;
 use App\Models\User\Wallet;
 use App\Models\User\WidthrawReq;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class UserDashboardController extends Controller
@@ -60,6 +62,31 @@ class UserDashboardController extends Controller
         $tasks = PlanTasks::where('plan', auth()->user()->package)->get();
         return view('user.work.task', compact('tasks'));
     }
+
+    public function profit($id)
+    {
+        $task = PlanTasks::find($id);
+
+        // check if user already got profit for this task today
+
+        $profit_check = History::where('user_id', auth()->user()->id)->where('task_id', $task->id)->whereDate('created_at', Carbon::today())->first();
+        if ($profit_check) {
+            return redirect()->back()->with('error', 'You already get profit of this task today');
+        } else {
+            $user = User::find(auth()->user()->id);
+            $user->balance += $task->price;
+            $user->save();
+            // making history
+            $history = new History();
+            $history->user_id = auth()->user()->id;
+            $history->task_id = $task->id;
+            $history->amount = $task->price;
+            $history->type = 'profit';
+            $history->save();
+            return redirect()->back()->with('success', 'You have got task amount successfully');
+        }
+    }
+
 
     public function earnMore()
     {
