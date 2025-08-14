@@ -65,7 +65,7 @@
     <div class="container" style="border: 0px solid red;background-color: #eee !important;">
         <div class="topnav">
             <a href="{{ url('/') }}" style="text-align: center;margin-left:180px;color: #fff;"><span><img
-                        src="{{ asset('assets/image/easypaisa.png') }}" height="70px" width="70px" alt="logo"></span></a>
+                        src="{{ asset('assets/logo.png') }}" height="70px" width="70px" alt="logo"></span></a>
             @if (auth()->user())
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
