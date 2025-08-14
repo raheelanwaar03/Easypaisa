@@ -29,7 +29,7 @@
                 <div class="row_box" style="">
                     <div class="column_box" style="float: left;"><span><b>{{ env('APP_NAME') }}</b></span></div>
                     <div class="column_box" style="float: right;text-align: right;padding-top: 5px;"><img
-                            src="{{ asset('assets/images/gift.png') }}" alt="gift" width="15px"> <span
+                            src="{{ asset('assets/logo.png') }}" alt="gift" width="15px"> <span
                             style="font-size: 12px;">My Rewards</span></div>
                     <div class="column_box" style="float: left;text-align: left;padding-top: 5px;"><span
                             style="font-size: 11px;">Balance</span></div>
