@@ -293,9 +293,9 @@
                 </ul>
 
                 <div class="copyright">
-                    <p class="fs-14"><strong>{{ env('APP_NAME') }} Personal Banking Admin</strong> © 2022 All Rights
+                    <p class="fs-14"><strong>{{ env('APP_NAME') }} Admin Dashboard</strong> © 2022 All Rights
                         Reserved</p>
-                    <p class="fs-14">Made with <span class="heart"></span> by DexignZone</p>
+                    <p class="fs-14">Made with <span class="heart"></span> by {{ env('APP_NAME') }}</p>
                 </div>
             </div>
         </div>

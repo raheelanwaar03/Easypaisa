@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\Plans;
+use App\Models\admin\PlanTasks;
 use App\Models\admin\Task;
 use Illuminate\Http\Request;
 
@@ -10,7 +12,8 @@ class AdminTaskController extends Controller
 {
     public function add()
     {
-        return view('admin.task.add');
+        $plans = Plans::get();
+        return view('admin.task.add', compact('plans'));
     }
 
     public function all()
@@ -24,6 +27,8 @@ class AdminTaskController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'image' => 'required',
+            'level' => 'required',
+            'plan' => 'required',
             'link' => 'required',
             'price' => 'required'
         ]);
@@ -34,6 +39,8 @@ class AdminTaskController extends Controller
 
         $task = new Task();
         $task->title = $validated['title'];
+        $task->level = $validated['level'];
+        $task->plan = $validated['plan'];
         $task->link = $validated['link'];
         $task->price = $validated['price'];
         $task->image = $imageName;
