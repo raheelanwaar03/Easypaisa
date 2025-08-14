@@ -34,6 +34,7 @@ class PlanTaskController extends Controller
             'name' => 'required',
             'plan' => 'required',
             'image' => 'required',
+            'level' => 'required',
             'link' => 'required',
             'price' => 'required'
         ]);
@@ -46,6 +47,7 @@ class PlanTaskController extends Controller
         $task->name = $validated['name'];
         $task->link = $validated['link'];
         $task->price = $validated['price'];
+        $task->level = $validated['level'];
         $task->plan = $validated['plan'];
         $task->image = $imageName;
         $task->save();
