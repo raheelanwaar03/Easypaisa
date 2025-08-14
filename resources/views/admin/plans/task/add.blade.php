@@ -28,6 +28,7 @@
                                     <div class="form-group">
                                         <label for="level">Level</label>
                                         <select name="level" id="level" class="form-control bg-transperent" style="color:black">
+                                            <option value="level 0">Level 0</option>
                                             <option value="level 1">Level 1</option>
                                             <option value="level 2">Level 2</option>
                                             <option value="level 3">Level 3</option>

@@ -10,6 +10,65 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>User | Dashboard</title>
 
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background: #fff;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .close {
+            float: right;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .stars {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .star {
+            font-size: 30px;
+            color: gray;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .star.active {
+            color: gold;
+        }
+
+        .submit-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #22c55e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #1aa94e;
+        }
+    </style>
+
 </head>
 
 <body style="background-color: #eee !important;height: 740px;">
@@ -57,7 +116,7 @@
                     <div class="col-md-4 mb-5">
                         <div class="card mt-3" style="width: 28rem;">
                             <img class="card-img-top" src="{{ asset('task/' . $task->image) }}" height="250px"
-                                width="277px" alt="Card image cap">
+                                width="277px">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     {{ $task->name }}
@@ -68,7 +127,28 @@
                                 <a href="{{ route('User.Task.Profit', $task->id) }}"
                                     onclick="window.open('{{ $task->link }}', '_blank')"
                                     class="btn btn-success">Earn</a>
+                                <a href="javascript:void(0)" class="rateBtn" data-id="{{ $task->id }}"
+                                    style="text-decoration:none; background:#22c55e; padding:8px 16px; color:#fff; border-radius:5px;">
+                                    Review
+                                </a>
                             </div>
+
+                            <div id="ratingModal" class="modal">
+                                <div class="modal-content">
+                                    <span class="close">&times;</span>
+                                    <h2>Rate this Product</h2>
+                                    <div class="stars">
+                                        <span class="star" data-value="1">&#9733;</span>
+                                        <span class="star" data-value="2">&#9733;</span>
+                                        <span class="star" data-value="3">&#9733;</span>
+                                        <span class="star" data-value="4">&#9733;</span>
+                                        <span class="star" data-value="5">&#9733;</span>
+                                    </div>
+                                    <p id="ratingText" style="margin-top:10px;">Click a star to rate</p>
+                                    <button class="submit-btn" id="submitReview">Submit Review</button>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 @endforeach
@@ -80,7 +160,89 @@
     @include('layouts.links')
 
     </div>
+
     <script src="{{ asset('assets/js/slider.js') }}"></script>
+
+    <script>
+        const modal = document.getElementById("ratingModal");
+        const closeBtn = document.querySelector(".close");
+        const stars = document.querySelectorAll(".star");
+        const ratingText = document.getElementById("ratingText");
+        const submitBtn = document.getElementById("submitReview");
+
+        let selectedRating = 0;
+        let currentProductId = null;
+
+        // Open modal on click for ANY review button
+        document.addEventListener("click", function(e) {
+            if (e.target.classList.contains("rateBtn")) {
+                currentProductId = e.target.getAttribute("data-id");
+                selectedRating = 0;
+                stars.forEach(s => s.classList.remove("active"));
+                ratingText.innerText = "Click a star to rate";
+                modal.style.display = "block";
+            }
+        });
+
+        // Close modal
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Close modal if clicking outside
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Star click event
+        stars.forEach(star => {
+            star.addEventListener("click", function() {
+                selectedRating = this.getAttribute("data-value");
+
+                stars.forEach(s => s.classList.remove("active"));
+                for (let i = 0; i < selectedRating; i++) {
+                    stars[i].classList.add("active");
+                }
+
+                ratingText.innerText =
+                    `You rated this product ${selectedRating} star${selectedRating > 1 ? 's' : ''}`;
+            });
+        });
+
+        // Submit review button
+        submitBtn.addEventListener("click", function() {
+            if (selectedRating > 0) {
+                // Send data to Laravel via fetch or AJAX
+                fetch("/submit-review", {
+                        // method: "POST",
+                        // headers: {
+                        //     "Content-Type": "application/json",
+                        //     "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                        // },
+                        body: JSON.stringify({
+                            product_id: currentProductId,
+                            rating: selectedRating
+                        })
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        alert(data.message || "Thank you! Review submitted.");
+                        modal.style.display = "none";
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        alert("Thanks for review.");
+                        modal.style.display = "none";
+                    });
+
+            } else {
+                alert("Please select a rating before submitting.");
+            }
+        });
+    </script>
+
 </body>
 
 </html>
