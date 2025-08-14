@@ -20,11 +20,15 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="">Email</label>
-                                        <input type="number" name="email" value="{{ $user->email }}" class="form-control" readonly>
+                                        <input type="email" name="email" value="{{ $user->email }}" class="form-control" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Balance</label>
                                         <input type="number" name="balance" value="{{ $user->balance }}" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Plan <small style="color: white">(Use first letter capital while changing plan)</small></label>
+                                        <input type="text" name="package" value="{{ $user->package }}" class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Phone</label>

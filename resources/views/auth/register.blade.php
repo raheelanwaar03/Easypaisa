@@ -107,10 +107,10 @@
                     </div>
                     <div class="form-group">
                         <label for="package">Package</label>
-                        <select name="package" class="form-control" id="package" required>
-                            <option value="Silver">Silver: 499</option>
-                            <option value="Gold">Gold: 799</option>
-                            <option value="Dimond">Dimond: 1499</option>
+                        <select name="package" class="form-control bg-light" id="package" required>
+                            @foreach ($plans as $item)
+                                <option value="{{ $item->name }}" style="color:black">{{ $item->name }}: {{ $item->investment }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <input type="text" name="referral" value="{{ $referral }}" hidden>

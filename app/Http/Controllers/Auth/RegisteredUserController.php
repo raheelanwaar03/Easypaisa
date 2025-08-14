@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\Plans;
 use App\Models\TrxID;
 use App\Models\User;
 use App\Models\User\EasyPaisaMangement;
@@ -24,7 +25,8 @@ class RegisteredUserController extends Controller
      */
     public function create($referral = 'default'): View
     {
-        return view('auth.register',compact('referral'));
+        $plans = Plans::get();
+        return view('auth.register',compact('referral','plans'));
     }
 
     public function verfication()
@@ -61,6 +63,9 @@ class RegisteredUserController extends Controller
         return redirect()->route('verification.page');
 
     }
+
+
+
     /**
      * Handle an incoming registration request.
      *

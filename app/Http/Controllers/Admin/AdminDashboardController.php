@@ -26,6 +26,7 @@ class AdminDashboardController extends Controller
     {
         $user = User::find($id);
         $user->balance = $request->balance;
+        $user->package = $request->package;
         $user->save();
         return redirect()->back()->with('success', 'User Details Updated');
     }

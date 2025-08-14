@@ -102,21 +102,21 @@ class clean extends Command
         $level->save();
 
         $plan = new Plans();
-        $plan->name = 'first';
+        $plan->name = 'Silver';
         $plan->investment = 500;
         $plan->total_profit = 800;
         $plan->duration = 15;
         $plan->save();
 
         $plan = new Plans();
-        $plan->name = 'second';
+        $plan->name = 'Gold';
         $plan->investment = 1500;
         $plan->total_profit = 2200;
         $plan->duration = 30;
         $plan->save();
 
         $plan = new Plans();
-        $plan->name = 'Third';
+        $plan->name = 'Dimond';
         $plan->investment = 2000;
         $plan->total_profit = 2800;
         $plan->duration = 45;
