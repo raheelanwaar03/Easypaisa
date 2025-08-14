@@ -65,12 +65,12 @@
     <div class="container" style="border: 0px solid red;background-color: #eee !important;">
         <div class="topnav">
             <a href="{{ route('User.Dashboard') }}" style="text-align: center;margin-left:180px;color: #fff;"><span><img
-                        src="{{ asset('assets/image/Easypaisa.png') }}" height="40px" width="40px"></span></a>
+                        src="{{ asset('assets/image/easypaisa.png') }}" height="70px" width="70px"></span></a>
             @if (auth()->user())
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button
-                        style="float: right;text-decoration:none;border:none;background-color:#2ABC71;margin-top:12px;margin-right:8px;"
+                        style="float: right;text-decoration:none;border:none;background-color:#2ABC71;margin-top:35px;margin-right:8px;"
                         type="submit"><i class="fa fa-power-off" style="color: #fff !important;"></i></button>
                 </form>
             @else

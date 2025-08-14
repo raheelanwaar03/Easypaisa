@@ -17,7 +17,7 @@
     <div class="container" style="border: 0px solid red;background-color: #eee !important;">
         <div class="topnav">
             <a href="{{ route('User.Dashboard') }}" style="text-align: center;margin-left:180px;color: #fff;"><span><img
-                        src="{{ asset('assets/image/Easypaisa.png') }}" height="40px" width="40px"></span></a>
+                        src="{{ asset('assets/image/easypaisa.png') }}" height="70px" width="70px"></span></a>
             <a href="#" style="float: right;"><i class="fa fa-bell-o" style="color: #fff !important;"></i></a>
             <a href="#" style="float: right;"><i class="fa fa-search" style="color: #fff !important;"></i></a>
         </div>
