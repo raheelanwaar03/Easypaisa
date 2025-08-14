@@ -3,7 +3,7 @@
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminTaskController;
 use App\Http\Controllers\Admin\PlansController;
-use App\Http\Controllers\admin\PlanTaskController;
+use App\Http\Controllers\Admin\PlanTaskController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\WidthrawRequestsController;
 use Illuminate\Support\Facades\Route;
