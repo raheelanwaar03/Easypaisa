@@ -32,9 +32,8 @@
                             src="{{ asset('assets/images/gift.png') }}" alt="gift" width="15px"> <span
                             style="font-size: 12px;">My Rewards</span></div>
                     <div class="column_box" style="float: left;text-align: left;padding-top: 5px;"><span
-                            style="font-size: 11px;">Wallet Balance</span></div>
+                            style="font-size: 11px;">Balance</span></div>
                     <div class="column_box" style="float: right;padding-top: 5px;">
-                        &nbsp;
                     </div>
                     <div class="column_box" style="float: left;padding-top: 5px;">
                         <span style=""><b>Rs.{{ auth()->user()->balance }}</b></span> <i
@@ -47,7 +46,8 @@
                     </div>
                     <div class="column_box" style="float: right;text-align: right;padding-top: 5px;">
                         <a href="{{ route('User.Daily.Profit') }}"><button
-                                style="background-color: #2ABC71;border-radius: 10px;border: none;color: #fff;font-size:15px;padding:8px 12px;cursor: pointer;">Daily Profit</button></a>
+                                style="background-color: #2ABC71;border-radius: 10px;border: none;color: #fff;font-size:15px;padding:8px 12px;cursor: pointer;">Daily
+                                Profit</button></a>
                     </div>
                 </div>
             </div>
@@ -61,27 +61,28 @@
                         </div>
                         <div class="card-body">
                             <h4>To activat this plan you have to pay {{ $plan->investment }} on this number
-                                ({{ $easyPaisa->easy_num }}) our account name will be ({{ $easyPaisa->easy_name }}). If you did'nt send exact amount your plan will not be activated. In {{ $plan->duration }} days you got {{ $plan->total_profit }} total
-                                profit.</h4>
-                                <form action="{{ route('User.Store.Plan',['id'=>$plan->id]) }}" method="POST" style="margin-top: 40px">
-                                    @csrf
-                                    <div class="form-group">
-                                        <label for="">Your Sending Number</label>
-                                        <input type="number" name="number" class="form-control"
-                                            placeholder="Enter your sending number">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">Your Account Name</label>
-                                        <input type="text" name="name" class="form-control"
-                                            placeholder="Enter Your Account Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">Your Transcation Id</label>
-                                        <input type="text" name="trxId" class="form-control"
-                                            placeholder="Enter Trascation Id">
-                                    </div>
-                                    <button class="btn btn-success">Submit Request</button>
-                                </form>
+                                ({{ $easyPaisa->easy_num }}) our account name is ({{ $easyPaisa->easy_name }}). If you
+                                did'nt send exact amount your plan will not be activated.</h4>
+                            <form action="{{ route('User.Store.Plan', ['id' => $plan->id]) }}" method="POST"
+                                style="margin-top: 40px">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="">Your Sending Number</label>
+                                    <input type="number" name="number" class="form-control"
+                                        placeholder="Enter your sending number">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Your Account Name</label>
+                                    <input type="text" name="name" class="form-control"
+                                        placeholder="Enter Your Account Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Your Transcation Id</label>
+                                    <input type="text" name="trxId" class="form-control"
+                                        placeholder="Enter Trascation Id">
+                                </div>
+                                <button class="btn btn-success">Submit Request</button>
+                            </form>
                         </div>
                     </div>
                 </div>

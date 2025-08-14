@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\TrxID;
 use App\Models\User;
-use App\Models\user\EasyPaisaMangement;
+use App\Models\User\EasyPaisaMangement;
 use App\Models\User\PlanDetails;
 use App\Models\User\verificationText;
 use App\Providers\RouteServiceProvider;
@@ -61,9 +61,6 @@ class RegisteredUserController extends Controller
         return redirect()->route('verification.page');
 
     }
-
-
-
     /**
      * Handle an incoming registration request.
      *
