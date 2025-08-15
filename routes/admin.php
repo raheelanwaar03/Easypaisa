@@ -8,8 +8,6 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\WidthrawRequestsController;
 use Illuminate\Support\Facades\Route;
 
-
-
 Route::prefix('Admin/')->name('Admin.')->middleware('auth', 'admin')->group(function () {
 
     Route::get('Dashboard', [AdminDashboardController::class, 'index'])->name('Dashboard');
