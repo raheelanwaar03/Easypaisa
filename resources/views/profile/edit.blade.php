@@ -38,7 +38,7 @@
                 <h2 style="color: black">{{ auth()->user()->name }}</h2>
                 <p style="color: black">Email: {{ auth()->user()->email }}</p>
                 <p style="color: black">Balance: {{ auth()->user()->balance }}</p>
-                <p style="color: black">Level: {{ auth()->user()->level }}</p>
+                <p style="color: black">Level: {{ auth()->user()->package }}</p>
                 <p style="color: black">About Me: You have been referred by {{ auth()->user()->referral }} at
                     {{ auth()->user()->created_at }}.</p>
             </div>

@@ -31,6 +31,10 @@
                                         <input type="text" name="package" value="{{ $user->package }}" class="form-control">
                                     </div>
                                     <div class="form-group">
+                                        <label for="">Level <small style="color: white">(Change number only)</small></label>
+                                        <input type="text" name="level" value="{{ $user->level }}" class="form-control">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="">Phone</label>
                                         <input type="number" name="mobile" value="{{ $user->mobile }}" class="form-control" readonly>
                                     </div>
