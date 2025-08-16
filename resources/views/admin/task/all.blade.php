@@ -16,7 +16,9 @@
                                     <thead>
                                         <tr>
                                             <th>Title</th>
-                                            <th>Description</th>
+                                            <th>Amount</th>
+                                            <th>Plan</th>
+                                            <th>Level</th>
                                             <th>Link</th>
                                             <th>Image</th>
                                             <th>Action</th>
@@ -26,7 +28,9 @@
                                         @foreach ($tasks as $task)
                                             <tr>
                                                 <td>{{ $task->title }}</td>
-                                                <td>{{ $task->description }}</td>
+                                                <td>{{ $task->price }}</td>
+                                                <td>{{ $task->plan }}</td>
+                                                <td>{{ $task->level }}</td>
                                                 <td>{{ $task->link }}</td>
                                                 <td><img src="{{ asset('images/' . $task->image) }}"
                                                         class="img-fluid img-responsive" height="80px" width="80px"

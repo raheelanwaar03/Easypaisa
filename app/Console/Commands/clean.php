@@ -139,7 +139,7 @@ class clean extends Command
         $user->name = 'User';
         $user->email = 'user@gmail.com';
         $user->referral = 'default';
-        $user->package = 'first';
+        $user->package = 'Silver';
         $user->balance = '10';
         $user->mobile = '03000000000';
         $user->password = Hash::make('asdfasdf');

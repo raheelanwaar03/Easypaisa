@@ -17,6 +17,7 @@
                                     <thead>
                                         <tr>
                                             <th>Name</th>
+                                            <th>Level</th>
                                             <th>Link</th>
                                             <th>Price</th>
                                             <th>Plan</th>
@@ -28,6 +29,7 @@
                                         @foreach ($tasks as $task)
                                             <tr>
                                                 <td>{{ $task->name }}</td>
+                                                <td>{{ $task->level }}</td>
                                                 <td>{{ $task->link }}</td>
                                                 <td>{{ $task->price }}</td>
                                                 <td>{{ $task->plan }}</td>
