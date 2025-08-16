@@ -49,14 +49,12 @@ class RegisteredUserController extends Controller
     public function storeFees(Request $request)
     {
         $validated = $request->validate([
-            'easypaisa_number' => 'required',
             'sender_name' => 'required',
             'trx_id' => 'required',
         ]);
 
         $trx_id = new TrxID();
         $trx_id->user_id = auth()->user()->id;
-        $trx_id->easypaisa_number = $validated['easypaisa_number'];
         $trx_id->sender_name = $validated['sender_name'];
         $trx_id->trx_id = $validated['trx_id'];
         $trx_id->save();

@@ -98,11 +98,6 @@
                 <form action="{{ route('Store.Package.Fees') }}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label>Easypaisa Number</label>
-                        <input type="number" class="form-control" name="easypaisa_number"
-                            placeholder="Enter your easypaisa number where you send package details">
-                    </div>
-                    <div class="form-group">
                         <label>Trx Id:</label>
                         <input type="number" class="form-control" name="trx_id"
                             placeholder="Enter your Trx Id Correctly">

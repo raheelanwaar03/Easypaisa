@@ -78,7 +78,7 @@
                 <h4>Verification Page</h4>
                 <p>{{ $text->text }}</p>
                     <center>
-                        <a href="{{ url('/') }}" class="btn btn-login"> Home</a>
+                        <a href="{{ route('User.Dashboard') }}" class="btn btn-login"> Home</a>
                     </center>
             </div>
         </div>
