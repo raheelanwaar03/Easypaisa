@@ -90,7 +90,7 @@ class UserDashboardController extends Controller
 
     public function earnMore()
     {
-        $tasks = Task::where('level', auth()->user()->level)->where('plan', auth()->user()->package);
+        $tasks = Task::where('level', auth()->user()->level)->where('plan', auth()->user()->package)->get();
         return view('user.work.earnMore', compact('tasks'));
     }
 

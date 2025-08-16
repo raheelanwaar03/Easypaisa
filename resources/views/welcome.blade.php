@@ -4,286 +4,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/slider.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>User | Dashboard</title>
-
+    <title>Authentication | Login</title>
+    <!-- Add Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
     <style>
-        /* The Modal (background) */
-        .modal {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            /* Stay in place */
-            z-index: 1;
-            /* Sit on top */
-            padding-top: 100px;
-            /* Location of the box */
-            left: 0;
-            top: 0;
+        body {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .login-container h2 {
+            color: #28a745;
+            text-align: center;
+        }
+
+        .brand-logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .brand-logo img {
+            max-width: 100px;
+            /* Adjust the max width of your logo as needed */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            border-color: #28a745;
+        }
+
+        .btn-login {
+            background-color: #28a745;
+            color: white;
             width: 100%;
-            /* Full width */
-            height: 100%;
-            /* Full height */
-            overflow: auto;
-            /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0);
-            /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.4);
-            /* Black w/ opacity */
         }
 
-        /* Modal Content */
-        .modal-content {
-            background-color: #fefefe;
-            margin: 60px;
-            padding: 60px;
-            border: 1px solid #888;
-            width: 80%;
-        }
-
-        /* The Close Button */
-        .close {
-            color: #aaaaaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
+        .btn-login:hover {
+            background-color: white;
+            color: green;
+            width: 100%;
+            border: 1px solid green;
         }
     </style>
-
 </head>
 
-<body style="background-color: #eee !important;height: 740px;">
-    <div class="container" style="border: 0px solid red;background-color: #eee !important;">
-        <div class="topnav">
-            <a href="{{ url('/') }}" style="text-align: center;margin-left:180px;color: #fff;"><span><img
-                        src="{{ asset('assets/logo.png') }}" height="70px" width="70px" alt="logo"></span></a>
-            @if (auth()->user())
-                <form action="{{ route('logout') }}" method="POST">
+<body style="background-image: url('{{ asset('assets/image/bg.jpg') }}')">
+    <x-alert />
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 login-container">
+                <div class="brand-logo">
+                    <a href="{{ url('/') }}">
+                        <img src="{{ asset('assets/image/logo.png') }}">
+                    </a>
+                </div>
+                <h5 class="text-center text-success">Login</h5>
+                <form action="{{ route('login') }}" method="POST">
                     @csrf
-                    <button
-                        style="float: right;text-decoration:none;border:none;background-color:#2ABC71;margin-top:12px;margin-right:8px;"
-                        type="submit"><i class="fa fa-power-off" style="color: #fff !important;"></i></button>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" class="form-control" id="email"
+                            placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password" placeholder="Enter your password">
+                    </div>
+                    <button type="submit" class="btn btn-login">Login</button>
                 </form>
-            @else
-                <button
-                    style="float: right;text-decoration:none;border:none;background-color:#2ABC71;margin-top:12px;margin-right:8px;"
-                    type="submit"><a href="{{ route('login') }}"><i class="fa fa-sign-in"
-                            style="color: #fff !important;"></i></a></button>
-            @endif
-        </div>
-        <div class="wrapper_one" style="background-color: #2ABC71;width: 100%;height: 170px;padding-left: 10px;">
-            <div>&nbsp;</div>
-            <div class="inner_box_div"
-                style="background-color: #fff;border-radius: 10px;padding:12px;margin: 0px 20px;">
-                <div class="row_box" style="">
-                    <div class="column_box" style="float: left;"><span><b>{{ env('APP_NAME') }}</b></span></div>
-                    <div class="column_box" style="float: right;text-align: right;padding-top: 5px;"><img
-                            src="{{ asset('assets/images/gift.png') }}" alt="gift" width="15px"> <span
-                            style="font-size: 12px;">My Rewards</span></div>
-                    <div class="column_box" style="float: left;text-align: left;padding-top: 5px;"><span
-                            style="font-size: 11px;">Available Balance</span></div>
-                    <div class="column_box" style="float: right;padding-top: 5px;">
-                        &nbsp;
-                    </div>
-                    <div class="column_box" style="float: left;padding-top: 5px;">
-                        @if (auth()->user())
-                            <span style=""><b>Rs.{{ auth()->user()->balance }}</b></span> <i
-                                class="fa fa-arrow-circle-o-right" aria-hidden="true"
-                                style="color: #000 !important;"></i>
-                        @else
-                            <span style=""><b>Rs: 0.00</b></span> <i class="fa fa-arrow-circle-o-right"
-                                aria-hidden="true" style="color: #000 !important;"></i>
-                        @endif
-                    </div>
-                    <div class="column_box" style="float: right;text-align: right;padding-top: 5px;">&nbsp;</div>
-                    <div class="column_box" style="float: left;padding-top: 5px;">
-                        <i class="fa fa-refresh" aria-hidden="true" style="color: #000;"></i>
-                        <span style="font-size: 12px;padding-top: 5px;">Update Just Now</span>
-                    </div>
-                    <div class="column_box" style="float: right;text-align: right;padding-top: 5px;">
-                        <a href=""><button
-                                style="background-color: #2ABC71;border-radius: 10px;border: none;color: #fff;font-size:11px;padding:2px 10px;">Add
-                                Cash</button></a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="wrapper_two" style="margin: 0px 10px;">
-            <div class="row">
-                <div class="column">
-                    <a href="{{ route('User.Widthraw.Amount') }}" style="text-decoration:none;color:#000">
-                        <div class="inner_data" style="background-color: #fff;border-radius: 10px;padding:20px;">
-                            <i class="fa fa-money" aria-hidden="true" style="font-size: 30px !important;"></i>
-                            <h5 style="font-size: 10px;">Widthraw Money</h5>
-                        </div>
-                    </a>
-                </div>
-                <a href="{{ route('User.Team.Members') }}" style="text-decoration:none;color:#000">
-                    <div class="column">
-                        <div class="inner_data" style="background-color: #fff;border-radius: 10px;padding:20px;">
-                            <i class="fa fa-users" aria-hidden="true" style="font-size: 30px !important;"></i>
-                            <!-- <h5 style="font-size: 11px;">Easycash Loan</h5> -->
-                            <h5 style="font-size: 11px;">Team Members</h5>
-                        </div>
-                    </div>
-                </a>
-                <div class="column" id="myBtn">
-                    <div class="inner_data" style="background-color: #fff;border-radius: 10px;padding:20px;">
-                        <i class="fa fa-user-plus" style="font-size: 30px !important;" aria-hidden="true"></i>
-                        <h5 style="font-size: 11px;">Invite & Earn</h5>
-                    </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="{{ route('register') }}">Have not account!</a>
+                    <a href="{{ route('password.request') }}">Forgot Password</a>
                 </div>
             </div>
-            <div class="row">
-                <a href="#" style="text-decoration:none;color:#000">
-                    <div class="column">
-                        <div class="inner_data" style="background-color: #fff;border-radius: 10px;padding:20px;">
-                            <a href="{{ $whatsapp->whatsapp_link }}" style="text-decoration: none;color:#000">
-                                <i class="fa fa-phone" aria-hidden="true" style="font-size: 30px !important;"></i>
-                                <!-- <h5 style="font-size: 11px;">Easycash Loan</h5> -->
-                                <h5 style="font-size: 11px;">Contact Us</h5>
-                            </a>
-                        </div>
-                    </div>
-                </a>
-                <div class="column" id="myBtn">
-                    <a href="{{ $channel_link->channel_link }}" style="text-decoration: none;color:#000">
-                        <div class="inner_data" style="background-color: #fff;border-radius: 10px;padding:20px;">
-                            <i class="fa fa-link" aria-hidden="true" style="font-size: 30px !important;"
-                                aria-hidden="true"></i>
-                            <h5 style="font-size: 10px;">official Channel</h5>
-                        </div>
-                    </a>
-                </div>
-                <div class="column" id="myBtn">
-                    <a href="{{ route('User.Task') }}" style="text-decoration:none;color:#000">
-                        <div class="inner_data" style="background-color: #fff;border-radius: 10px;padding:20px;">
-                            <i class="fa fa-usd" aria-hidden="true" style="font-size: 35px !important;"></i>
-                            <h5 style="font-size: 10px;">Earn More</h5>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        {{-- model --}}
-
-        <div id="myModal" class="modal">
-
-            <!-- Modal content -->
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <div class="my-5">
-                    @if (auth()->user())
-                        <input type="text" style="padding: 15px;width:90%;border:1px solid black;"
-                            value="{{ route('register', ['referral' => Auth::user()->email]) }}" id="myInput"
-                            readonly>
-                    @else
-                        <input type="text" style="padding: 15px;width:90%;border:1px solid black;" value="#"
-                            id="myInput" readonly>
-                    @endif
-                    <div class="">
-                        <button onclick="copy()"
-                            style="padding: 16px 25px;margin-top:10px;border:none;border-radius:12px;background-color:green;color:white">copy</button>
-                    </div>
-                    <script>
-                        function copy() {
-                            // Get the text field
-                            var copyText = document.getElementById("myInput");
-                            copyText.select();
-                            copyText.setSelectionRange(0, 99999);
-                            navigator.clipboard.writeText(copyText.value);
-                            // Alert the copied text
-                            alert("Copied the text: " + copyText.value);
-                        }
-                    </script>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="wrapper_three" style="border: 0px solid green;padding: 0px 15px;">
-            <p style="margin: 10px 0px;font-size: 16px;"><b>More With {{ env('APP_NAME') }}</b></p>
-            <div class="center">
-                <div class="slider" data-pos="0">
-                    <div class="slider__slides">
-                        <div class="slider__slide">
-                            <div class="row" style="padding: 17px 0px;">
-                                <div class="column_slider">
-                                    <div class="inner_data">
-                                        <a href="{{ route('User.Investment.Plans') }}"
-                                            style="text-decoration: none;color:black">
-                                            <i class="fa fa-handshake-o" aria-hidden="true"
-                                                style="font-size: 35px !important;"></i>
-                                            <br />
-                                            <span style="font-size: 15px;">Invest & Earn</span>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="column_slider">
-                                    <div class="inner_data">
-                                        <a href="{{ route('User.Active.Plan') }}"
-                                            style="text-decoration: none;color:black">
-                                            <i class="fa fa-superpowers" aria-hidden="true"
-                                                style="font-size: 35px !important;"></i>
-                                            <br />
-                                            <span style="font-size: 15px;">Active Plans</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
 
-    @include('layouts.links')
-
-    </div>
-
-    <footer>
-        <script>
-            // Get the modal
-            var modal = document.getElementById("myModal");
-
-            // Get the button that opens the modal
-            var btn = document.getElementById("myBtn");
-
-            // Get the <span> element that closes the modal
-            var span = document.getElementsByClassName("close")[0];
-
-            // When the user clicks the button, open the modal
-            btn.onclick = function() {
-                modal.style.display = "block";
-            }
-
-            // When the user clicks on <span> (x), close the modal
-            span.onclick = function() {
-                modal.style.display = "none";
-            }
-
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-        </script>
-    </footer>
-
-    <script src="{{ asset('assets/js/slider.js') }}"></script>
+    <!-- Add Bootstrap JS and jQuery CDN (for Bootstrap functionality) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>
