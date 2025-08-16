@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('plan_name');
             $table->string('plan_investment');
             $table->string('name');
+            $table->string('number');
             $table->string('trxId');
             $table->string('status')->default('pending');
             $table->timestamps();
