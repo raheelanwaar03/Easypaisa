@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('easy_paisa_mangements', function (Blueprint $table) {
             $table->id();
             $table->string('easy_name');
-            $table->string('easy_num');
             $table->string('bank');
             $table->string('status');
             $table->timestamps();
