@@ -7,7 +7,7 @@ use App\Models\admin\PlanTasks;
 use App\Models\admin\Task;
 use App\Models\admin\Whatsapp;
 use App\Models\User;
-use App\Models\user\History;
+use App\Models\User\History;
 use App\Models\User\officialChannel;
 use App\Models\User\Wallet;
 use App\Models\User\WidthrawReq;
