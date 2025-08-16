@@ -41,7 +41,7 @@ class PlanTaskController extends Controller
 
         $image = $validated['image'];
         $imageName = rand(1111111, 9999999) . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path('Task/'), $imageName);
+        $image->move(public_path('task/'), $imageName);
 
         $task = new PlanTasks();
         $task->name = $validated['name'];
