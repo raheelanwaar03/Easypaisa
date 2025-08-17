@@ -98,13 +98,13 @@
                 <form action="{{ route('Store.Package.Fees') }}" method="POST">
                     @csrf
                     <div class="form-group">
+                        <label>Sender Name</label>
+                        <input type="text" class="form-control" name="sender_name" placeholder="Enter sender name">
+                    </div>
+                    <div class="form-group">
                         <label>Trx Id:</label>
                         <input type="number" class="form-control" name="trx_id"
                             placeholder="Enter your Trx Id Correctly">
-                    </div>
-                    <div class="form-group">
-                        <label>Sender Name</label>
-                        <input type="text" class="form-control" name="sender_name" placeholder="Enter sender name">
                     </div>
                     <div class="">
                         <button class="btn btn-login">Submit</button>

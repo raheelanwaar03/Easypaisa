@@ -41,6 +41,10 @@ class RegisteredUserController extends Controller
         {
             return redirect(route('User.Dashboard'));
         }
+        if(auth()->user()->status == 'pending')
+        {
+            return redirect(route('verification.page'));
+        }
         $easyPaisa = EasyPaisaMangement::where('status','active')->first();
         $plans = PlanDetails::where('status','1')->get();
         return view('auth.package',compact('plans','easyPaisa'));
