@@ -9,6 +9,7 @@ use App\Models\admin\Whatsapp;
 use App\Models\User;
 use App\Models\User\History;
 use App\Models\User\officialChannel;
+use App\Models\user\Setting;
 use App\Models\User\Wallet;
 use App\Models\User\WidthrawReq;
 use Carbon\Carbon;
@@ -37,13 +38,34 @@ class UserDashboardController extends Controller
             'amount' => 'required',
         ]);
 
+        // check if user refer someone in a weak or not
+        $sevenDaysAgo = Carbon::now()->subDays(7);
+        $refer_check = User::where('referral', auth()->user()->email)->whereDate('created_at', '>=', $sevenDaysAgo)->get();
+        if ($refer_check == null) {
+            return response()->redirect()->back('error', 'You have not refer anyone in a week');
+        }
+
         $widthraw_amount = $validated['amount'];
         if (auth()->user()->balance < $widthraw_amount) {
             return redirect()->back()->with('error', 'You have not enough balance');
         }
+        // check limit of withdraw
+        $check_limit = Setting::where('status', '1')->first();
+        // amount should be not bigger than limit
+        if ($widthraw_amount > $check_limit->min_widthraw) {
+            return redirect()->back()->with('error', 'The Minimum amount you can withdraw is ' . $check_limit->min_widthraw . '.');
+        }
+        // check if user get his first withdraw more than 50 pkr and its his second withdraw
+        $check_first_widthraw = WidthrawReq::where('user_id', auth()->user()->id)->where('status', 'approved')->first();
+        if ($check_first_widthraw) {
+            if ($check_first_widthraw->amount >= 50) {
+                return redirect()->back()->with('error', 'You can only withdraw more than 500 in second time');
+            }
+        }
 
+        // check pending request
         $check_request = WidthrawReq::where('user_id', auth()->user()->id)->where('status', 'pending')->first();
-        if ($check_request != null) {
+        if ($check_request !== null) {
             return redirect()->back()->with('error', 'Wait for your first request to approve then you can request for more widthraw');
         }
 
