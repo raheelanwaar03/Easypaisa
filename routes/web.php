@@ -23,6 +23,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// extera route
 Route::post('Store/Package/Fees', [RegisteredUserController::class, 'storeFees'])->name('Store.Package.Fees');
 
 Route::middleware('auth')->group(function () {
