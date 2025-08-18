@@ -23,7 +23,7 @@ class SettingController extends Controller
     public function editLevel($id)
     {
         $level = ReferalLevel::find($id);
-        return view('admin.setting.editlevel');
+        return view('admin.setting.editlevel',compact('level'));
     }
 
     public function updateLevel(Request $request, $id)
