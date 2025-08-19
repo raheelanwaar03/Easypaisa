@@ -52,7 +52,7 @@ class UserDashboardController extends Controller
         // check limit of withdraw
         $check_limit = Setting::where('status', '1')->first();
         // amount should be not bigger than limit
-        if ($widthraw_amount > $check_limit->min_widthraw) {
+        if ($check_limit->min_widthraw > $validated['amount']) {
             return redirect()->back()->with('error', 'The Minimum amount you can withdraw is ' . $check_limit->min_widthraw . '.');
         }
         // check if user get his first withdraw more than 50 pkr and its his second withdraw
