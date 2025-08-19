@@ -9,7 +9,7 @@ use App\Models\admin\Whatsapp;
 use App\Models\User;
 use App\Models\User\History;
 use App\Models\User\officialChannel;
-use App\Models\user\Setting;
+use App\Models\User\Setting;
 use App\Models\User\Wallet;
 use App\Models\User\WidthrawReq;
 use Carbon\Carbon;
