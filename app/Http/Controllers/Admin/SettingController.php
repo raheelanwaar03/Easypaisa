@@ -91,7 +91,7 @@ class SettingController extends Controller
 
     public function easypaisa()
     {
-        $easypaisa = EasyPaisaMangement::where('status', '1')->get();
+        $easypaisa = EasyPaisaMangement::where('status', 'active')->first();
         return view('admin.setting.easypaisa.index', compact('easypaisa'));
     }
 
@@ -104,9 +104,10 @@ class SettingController extends Controller
     public function updateEasypaisa(Request $request, $id)
     {
         $easypaisa = EasyPaisaMangement::find($id);
-        $easypaisa->easy_num = $request->esay_num;
-        $easypaisa->easy_name = $request->esay_name;
-        $easypaisa->sava();
+        $easypaisa->easy_num = $request->easy_num;
+        $easypaisa->easy_name = $request->easy_name;
+        $easypaisa->bank = $request->bank;
+        $easypaisa->save();
         return redirect()->back()->with('success', 'Easypaisa details updated');
     }
 

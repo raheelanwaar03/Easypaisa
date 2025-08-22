@@ -56,8 +56,8 @@ Route::prefix('Admin/')->name('Admin.')->middleware('auth', 'admin')->group(func
     Route::post('Update/Verfication/Page/Text/{id}', [SettingController::class, 'updateText'])->name('Update.Verification.Text');
     // easypaisa
     Route::get('Easypaisa/Number', [SettingController::class, 'easypaisa'])->name('Easypaisa.Num');
-    Route::get('Edit/Easypaisa/Number', [SettingController::class, 'editEasypaisa'])->name('Edit.Easypaisa.Num');
-    Route::post('Update/Easypaisa/Number', [SettingController::class, 'updateEasypaisa'])->name('Update.Easypaisa.Num');
+    Route::get('Edit/Easypaisa/Number/{id}', [SettingController::class, 'editEasypaisa'])->name('Edit.Easypaisa.Num');
+    Route::post('Update/Easypaisa/Number/{id}', [SettingController::class, 'updateEasypaisa'])->name('Update.Easypaisa.Num');
     // plans
     Route::get('All/Plans/Details', [SettingController::class, 'homePlans'])->name('All.Home.Plans');
     Route::get('Edit/Plan/Details/{id}', [SettingController::class, 'editPlan'])->name('Edit.Home.Plan');

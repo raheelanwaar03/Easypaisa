@@ -15,21 +15,22 @@
                                 <table id="example" class="display" style="min-width: 845px">
                                     <thead>
                                         <tr>
-                                            <th>Easypaisa Number</th>
-                                            <th>Easypaisa Name</th>
+                                            <th>Account Title</th>
+                                            <th>Account Number</th>
+                                            <th>Bank</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($easypaisa as $easypaisa)
-                                            <tr>
-                                                <td>{{ $easypaisa->esay_num }}</td>
-                                                <td>{{ $easypaisa->esay_name }}</td>
-                                                <td>
-                                                    <a href="{{ route('Admin.Edit.Easypaisa.Num', ['id' => $easypaisa->id]) }}"
-                                                        class="btn btn-sm btn-primary">Edit</a>
-                                                </td>
-                                            </tr>
-                                        @endforeach
+                                        <tr>
+                                            <td>{{ $easypaisa->easy_name }}</td>
+                                            <td>{{ $easypaisa->easy_num }}</td>
+                                            <td>{{ $easypaisa->bank }}</td>
+                                            <td>
+                                                <a href="{{ route('Admin.Edit.Easypaisa.Num', $easypaisa->id) }}"
+                                                    class="btn btn-sm btn-primary">Edit</a>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -37,8 +38,8 @@
                     </div>
                 </div>
                 <!--**********************************
-                                                    Footer start
-                                                ***********************************-->
+                                                                            Footer start
+                                                                        ***********************************-->
                 <div class="footer">
                     <div class="copyright">
                         <p>Copyright © Designed &amp; Developed by <a href="#">
@@ -46,8 +47,8 @@
                     </div>
                 </div>
                 <!--**********************************
-                                                    Footer end
-                                                ***********************************-->
+                                                                            Footer end
+                                                                        ***********************************-->
 
             </div>
         </div>

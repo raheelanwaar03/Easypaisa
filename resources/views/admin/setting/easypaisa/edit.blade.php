@@ -12,15 +12,23 @@
                                 <h3 style="text-align: center">Edit Easypaisa Details</h3>
                             </div>
                             <div class="card-body">
-                                <form action="{{ route('Admin.Update.Easypaisa.Num', ['id' => $text->id]) }}" method="POST">
+                                <form action="{{ route('Admin.Update.Easypaisa.Num', ['id' => $easypaisa->id]) }}"
+                                    method="POST">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="">Easypaisa Number</label>
-                                        <input type="text" name="easy_num" value="{{ $easypaisa->easy_num }}" class="form-control">
+                                        <label for="">Account Number</label>
+                                        <input type="text" name="easy_num" value="{{ $easypaisa->easy_num }}"
+                                            class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Easypaisa Name</label>
-                                        <input type="text" name="easy_name" value="{{ $easypaisa->easy_name }}" class="form-control">
+                                        <label for="">Account Title</label>
+                                        <input type="text" name="easy_name" value="{{ $easypaisa->easy_name }}"
+                                            class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Bank</label>
+                                        <input type="text" name="bank" value="{{ $easypaisa->bank }}"
+                                            class="form-control">
                                     </div>
                                     <div class="my-3">
                                         <button class="btn btn-primary" type="submit">Update</button>
