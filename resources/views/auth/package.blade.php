@@ -54,13 +54,26 @@
             color: white;
             width: 100%;
         }
-
         .btn-login:hover {
             background-color: white;
             color: green;
             width: 100%;
             border: 1px solid green;
         }
+
+        .btn-logout {
+            background-color: #a72828;
+            color: white;
+            width: 100%;
+        }
+
+        .btn-logout:hover {
+            background-color: white;
+            color: rgb(128, 0, 0);
+            width: 100%;
+            border: 1px solid rgb(128, 0, 0);
+        }
+
     </style>
 </head>
 
@@ -110,6 +123,12 @@
                         <button class="btn btn-login">Submit</button>
                     </div>
                 </form>
+                <div class="mt-3">
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-logout">Logout</button>
+                    </form>
+                </div>
             </div>
         </div>
 
