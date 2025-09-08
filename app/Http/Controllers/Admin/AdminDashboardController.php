@@ -7,6 +7,7 @@ use App\Models\User;
 
 use App\Models\User\ReferalLevel;
 use App\Models\User\Setting;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AdminDashboardController extends Controller
@@ -34,8 +35,13 @@ class AdminDashboardController extends Controller
 
     public function pending()
     {
-        $users = User::where('status', 'pending')->with('trxIds')->get();
+        $users = User::where('status', 'pending')->whereHas('trxIds')->get();
         return view('admin.user.pending', compact('users'));
+    }
+    public function today()
+    {
+        $users = User::where('status', 'pending')->whereDate('created_at', Carbon::today())->whereHas('trxIds')->get();
+        return view('admin.user.today', compact('users'));
     }
 
     public function makeApprove($id)
