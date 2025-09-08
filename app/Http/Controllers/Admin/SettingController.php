@@ -60,13 +60,13 @@ class SettingController extends Controller
     public function updateLimite(Request $request, $id)
     {
         $limite = Setting::find($id);
-        $limite->mini_widthraw = $request->mini_widthraw;
+        $limite->min_widthraw = $request->min_widthraw;
         $limite->max_widthraw = $request->max_widthraw;
         $limite->planA = $request->planA;
         $limite->planB = $request->planB;
         $limite->planC = $request->planC;
         $limite->save();
-        return redirect()->back()->with('success', 'Limite updated successfully');
+        return redirect()->route('Admin.Widthraw.Limits')->with('success', 'Limite updated successfully');
     }
 
     public function text()

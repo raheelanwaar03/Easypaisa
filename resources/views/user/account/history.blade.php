@@ -69,7 +69,6 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>Amount</th>
-                                        <th>Type</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
@@ -78,7 +77,6 @@
                                         <tr>
                                             <td>{{ $item->user_name }}</td>
                                             <td>{{ $item->amount }}</td>
-                                            <td>{{ $item->type }}</td>
                                             <td>{{ $item->status }}</td>
                                         </tr>
                                     @endforeach

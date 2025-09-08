@@ -16,7 +16,7 @@
                                     @csrf
                                     <div class="form-group">
                                         <label for="">Minimum Widthraw</label>
-                                        <input type="text" name="mini_widthraw" value="{{ $limite->mini_widthraw }}"
+                                        <input type="text" name="min_widthraw" value="{{ $limite->min_widthraw }}"
                                             class="form-control">
                                     </div>
                                     <div class="form-group">

@@ -50,7 +50,7 @@ Route::prefix('Admin/')->name('Admin.')->middleware('auth', 'admin')->group(func
     // Widthraw Limites
     Route::get('Widthraw/Limits', [SettingController::class, 'widthrawLimites'])->name('Widthraw.Limits');
     Route::get('Edit/Widthraw/Limit/{id}', [SettingController::class, 'editWidthrawLimites'])->name('Edit.Widthraw.Limit');
-    Route::post('Update/Widthraw/Limit/{id}', [SettingController::class, 'updateWidthrawLimites'])->name('Update.Widthraw.Limit');
+    Route::post('Update/Widthraw/Limit/{id}', [SettingController::class, 'updateLimite'])->name('Update.Widthraw.Limit');
     // text
     Route::get('Verfication/Page/Text', [SettingController::class, 'text'])->name('Verification.Text');
     Route::get('Edit/Verfication/Page/Text/{id}', [SettingController::class, 'editText'])->name('Edit.Verification.Text');
