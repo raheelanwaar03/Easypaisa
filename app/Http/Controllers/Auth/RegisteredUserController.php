@@ -26,24 +26,23 @@ class RegisteredUserController extends Controller
     public function create($referral = 'default'): View
     {
         $plans = Plans::get();
-        return view('auth.register',compact('referral','plans'));
+        return view('auth.register', compact('referral', 'plans'));
     }
 
     public function verfication()
     {
-        $text = verificationText::where('status','1')->first();
-        return view('auth.verification',compact('text'));
+        $text = verificationText::where('status', '1')->first();
+        return view('auth.verification', compact('text'));
     }
 
     public function package()
     {
-        if(auth()->user()->status == 'approved')
-        {
+        if (auth()->user()->status == 'approved') {
             return redirect(route('User.Dashboard'));
         }
-        $easyPaisa = EasyPaisaMangement::where('status','active')->first();
-        $plans = PlanDetails::where('status','1')->get();
-        return view('auth.package',compact('plans','easyPaisa'));
+        $easyPaisa = EasyPaisaMangement::where('status', 'active')->first();
+        $plans = PlanDetails::where('status', '1')->get();
+        return view('auth.package', compact('plans', 'easyPaisa'));
     }
 
     public function storeFees(Request $request)
@@ -59,7 +58,6 @@ class RegisteredUserController extends Controller
         $trx_id->trx_id = $validated['trx_id'];
         $trx_id->save();
         return redirect()->route('verification.page');
-
     }
 
 
@@ -73,15 +71,14 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'mobile' => 'required',
             'package' => 'required',
         ]);
 
-        if($request->referral == 'default')
-        {
-            return redirect()->back()->with('error','Please make your account to someones referral link so he will also get his bouns');
+        if ($request->referral == 'default') {
+            return redirect()->back()->with('error', 'Please make your account to someones referral link so he will also get his bouns');
         }
 
         $user = User::create([
@@ -89,6 +86,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'mobile' => $request->mobile,
             'package' => $request->package,
+            'balance' => '25',
             'referral' => $request->referral,
             'password' => Hash::make($request->password),
         ]);
