@@ -42,7 +42,7 @@ function rejected_users()
 
 function given_widthraw()
 {
-    $widthraw = WidthrawReq::where('status', 'approved')->get();
+    $widthraw = WidthrawReq::where('status', 'approved')->where('user_id', auth()->user()->id)->get();
     $total_widthraw_given = 0;
     foreach ($widthraw as $item) {
         $total_widthraw_given += $item->amount;
@@ -53,6 +53,16 @@ function given_widthraw()
 function today_widthraw()
 {
     $widthraw = WidthrawReq::where('status', 'approved')->whereDate('created_at', Carbon::today())->get();
+    $total_widthraw_given = 0;
+    foreach ($widthraw as $item) {
+        $total_widthraw_given += $item->amount;
+    }
+    return $total_widthraw_given;
+}
+
+function total_widthraw()
+{
+    $widthraw = WidthrawReq::where('status', 'approved')->get();
     $total_widthraw_given = 0;
     foreach ($widthraw as $item) {
         $total_widthraw_given += $item->amount;

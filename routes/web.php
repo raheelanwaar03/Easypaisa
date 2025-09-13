@@ -16,9 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    if(auth()->user())
-    {
+    if (auth()->user()) {
         return redirect()->route('verification.page');
+    }
+    if (auth()->user()) {
+        return redirect()->route('User.Dashboard');
     }
     return view('welcome');
 });

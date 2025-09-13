@@ -62,7 +62,7 @@
                                     </div>
                                 </div>
                                 <div class="card-body d-flex align-items-center justify-content-center custome-tooltip">
-                                    <h2>{{ given_widthraw() }}</h2>
+                                    <h2>{{ total_widthraw() }}</h2>
                                 </div>
                             </div>
                         </div>
