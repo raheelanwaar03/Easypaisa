@@ -58,8 +58,8 @@ class UserDashboardController extends Controller
         // check if user get his first withdraw more than 50 pkr and its his second withdraw
         $check_first_widthraw = WidthrawReq::where('user_id', auth()->user()->id)->where('status', 'approved')->first();
         if ($check_first_widthraw) {
-            if ($check_first_widthraw->amount >= 50) {
-                return redirect()->back()->with('error', 'You can only withdraw more than 500 in second time');
+            if ($check_first_widthraw->amount <= 50) {
+                return redirect()->back()->with('error', 'You have withdraw more than 500 in second time.');
             }
         }
 
