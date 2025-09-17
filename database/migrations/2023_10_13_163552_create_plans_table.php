@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('investment');
             $table->string('duration');
             $table->string('total_profit');
+            $table->string('bounce');
             $table->timestamps();
         });
     }
