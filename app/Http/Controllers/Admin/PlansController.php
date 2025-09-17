@@ -50,6 +50,7 @@ class PlansController extends Controller
         $plan->name = $request->name;
         $plan->investment = $request->investment;
         $plan->duration = $request->duration;
+        $plan->bounce = $request->bounce;
         $plan->total_profit = $request->total_profit;
         $plan->save();
         return redirect()->back()->with('success', 'Plan details has updated successfully');

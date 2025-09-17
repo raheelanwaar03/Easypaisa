@@ -19,6 +19,7 @@
                                             <th>Investment</th>
                                             <th>Total_Profit</th>
                                             <th>Duration</th>
+                                            <th>Bounce</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -29,6 +30,7 @@
                                                 <td>{{ $plan->investment }}</td>
                                                 <td>{{ $plan->total_profit }}</td>
                                                 <td>{{ $plan->duration }}</td>
+                                                <td>{{ $plan->bounce }}</td>
                                                 <td>
                                                     <a href="{{ route('Admin.Edit.Plan', ['id' => $plan->id]) }}"
                                                         class="btn btn-primary">Edit</a>

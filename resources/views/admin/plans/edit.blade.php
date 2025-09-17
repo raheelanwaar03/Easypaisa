@@ -12,22 +12,23 @@
                                 <h3 style="text-align: center">Add Plan</h3>
                             </div>
                             <div class="card-body">
-                                <form action="{{ route('Admin.Update.Plan',['id'=>$plan->id]) }}" method="POST">
+                                <form action="{{ route('Admin.Update.Plan', ['id' => $plan->id]) }}" method="POST">
                                     @csrf
                                     <div class="form-group">
                                         <label for="">Name</label>
-                                        <input type="text" name="name" value="{{ $plan->name }}" class="form-control"
-                                            placeholder="Enter plan name" required>
+                                        <input type="text" name="name" value="{{ $plan->name }}"
+                                            class="form-control" placeholder="Enter plan name" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Investment</label>
-                                        <input type="number" name="investment" value="{{ $plan->investment }}" class="form-control"
-                                            placeholder="Enter plan Investment" min="1" required>
+                                        <input type="number" name="investment" value="{{ $plan->investment }}"
+                                            class="form-control" placeholder="Enter plan Investment" min="1"
+                                            required>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Total Profit</label>
-                                        <input type="number" name="total_profit" value="{{ $plan->total_profit }}" class="form-control"
-                                            placeholder="Enter plan Total Profit" required>
+                                        <input type="number" name="total_profit" value="{{ $plan->total_profit }}"
+                                            class="form-control" placeholder="Enter plan Total Profit" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Duration</label>
@@ -37,6 +38,11 @@
                                             <option value="45" style="color:black;">45Days</option>
                                             <option value="60" style="color:black;">60Days</option>
                                         </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Registeration Bounce</label>
+                                        <input type="number" name="bounce" value="{{ $plan->bounce }}"
+                                            class="form-control" required>
                                     </div>
                                     <div class="my-3">
                                         <button class="btn btn-primary" type="submit">Update</button>
@@ -49,8 +55,8 @@
                 </div>
             </div>
             <!--**********************************
-                                Footer start
-                            ***********************************-->
+                                    Footer start
+                                ***********************************-->
             <div class="footer">
                 <div class="copyright">
                     <p>Copyright © Designed &amp; Developed by <a href="#">
@@ -58,8 +64,8 @@
                 </div>
             </div>
             <!--**********************************
-                                Footer end
-                            ***********************************-->
+                                    Footer end
+                                ***********************************-->
 
         </div>
     </div>
