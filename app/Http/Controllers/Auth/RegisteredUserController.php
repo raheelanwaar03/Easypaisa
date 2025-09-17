@@ -69,6 +69,7 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
@@ -81,12 +82,14 @@ class RegisteredUserController extends Controller
             return redirect()->back()->with('error', 'Please make your account to someones referral link so he will also get his bouns');
         }
 
+        $register_bounce = Plans::where('name', $request->package)->first();
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'mobile' => $request->mobile,
             'package' => $request->package,
-            'balance' => '50',
+            'balance' => $register_bounce->bounce,
             'referral' => $request->referral,
             'password' => Hash::make($request->password),
         ]);

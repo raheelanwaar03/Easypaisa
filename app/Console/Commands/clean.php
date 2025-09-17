@@ -106,7 +106,7 @@ class clean extends Command
         $plan->investment = 500;
         $plan->total_profit = 800;
         $plan->duration = 15;
-        $plan->bounce = 50;
+        $plan->bounce = 20;
         $plan->save();
 
         $plan = new Plans();
@@ -114,7 +114,7 @@ class clean extends Command
         $plan->investment = 1500;
         $plan->total_profit = 2200;
         $plan->duration = 30;
-        $plan->bounce = 50;
+        $plan->bounce = 30;
         $plan->save();
 
         $plan = new Plans();
