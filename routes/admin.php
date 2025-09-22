@@ -80,4 +80,5 @@ Route::prefix('Admin/')->name('Admin.')->middleware('auth', 'admin')->group(func
     Route::get('All/Plan/Task', [PlanTaskController::class, 'allTask'])->name('All.Plan.Task');
     Route::get('Delete/Plan/Task/{id}', [PlanTaskController::class, 'deleteTask'])->name('Delete.Plan.Task');
     Route::post('Store/Plan/Task', [PlanTaskController::class, 'storeTask'])->name('Store.Plan.Task');
+    Route::post('Change/Password/{id}', [AdminDashboardController::class, 'changePassword'])->name('Change.Password');
 });

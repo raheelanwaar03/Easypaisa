@@ -12,31 +12,39 @@
                                 <h3 style="text-align: center">{{ $user->name }} Details</h3>
                             </div>
                             <div class="card-body">
-                                <form action="{{ route('Admin.Update.User.Details',['id'=>$user->id]) }}" method="POST">
+                                <form action="{{ route('Admin.Update.User.Details', ['id' => $user->id]) }}" method="POST">
                                     @csrf
                                     <div class="form-group">
                                         <label for="">Name</label>
-                                        <input type="text" name="name" value="{{ $user->name }}" class="form-control" readonly>
+                                        <input type="text" name="name" value="{{ $user->name }}"
+                                            class="form-control" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Email</label>
-                                        <input type="email" name="email" value="{{ $user->email }}" class="form-control" readonly>
+                                        <input type="email" name="email" value="{{ $user->email }}"
+                                            class="form-control" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="">Balance</label>
-                                        <input type="number" name="balance" value="{{ $user->balance }}" class="form-control">
+                                        <input type="number" name="balance" value="{{ $user->balance }}"
+                                            class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Plan <small style="color: white">(Use first letter capital while changing plan)</small></label>
-                                        <input type="text" name="package" value="{{ $user->package }}" class="form-control">
+                                        <label for="">Plan <small style="color: white">(Use first letter capital
+                                                while changing plan)</small></label>
+                                        <input type="text" name="package" value="{{ $user->package }}"
+                                            class="form-control">
                                     </div>
                                     <div class="form-group">
-                                        <label for="">Level <small style="color: white">(Change number only)</small></label>
-                                        <input type="text" name="level" value="{{ $user->level }}" class="form-control">
+                                        <label for="">Level <small style="color: white">(Change number
+                                                only)</small></label>
+                                        <input type="text" name="level" value="{{ $user->level }}"
+                                            class="form-control">
                                     </div>
                                     <div class="form-group">
                                         <label for="">Phone</label>
-                                        <input type="number" name="mobile" value="{{ $user->mobile }}" class="form-control" readonly>
+                                        <input type="number" name="mobile" value="{{ $user->mobile }}"
+                                            class="form-control" readonly>
                                     </div>
                                     <div class="my-3">
                                         <button class="btn btn-info" type="submit">Update</button>
@@ -45,22 +53,33 @@
                             </div>
                         </div>
 
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="text-center">Change Password</h3>
+                            </div>
+                            <div class="card-body">
+                                <form action="{{ route('Admin.Change.Password', $user->id) }}" method="POST">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input type="text" name="password" id="password" class="form-control">
+                                    </div>
+                                    <div class="mt-3">
+                                        <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
-            <!--**********************************
-                                Footer start
-                            ***********************************-->
             <div class="footer">
                 <div class="copyright">
                     <p>Copyright © Designed &amp; Developed by <a href="#">
                             {{ env('APP_NAME') }}</a> 2022</p>
                 </div>
             </div>
-            <!--**********************************
-                                Footer end
-                            ***********************************-->
-
         </div>
     </div>
 @endsection

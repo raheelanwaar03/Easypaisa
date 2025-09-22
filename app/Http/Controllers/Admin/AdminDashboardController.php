@@ -9,6 +9,7 @@ use App\Models\User\ReferalLevel;
 use App\Models\User\Setting;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminDashboardController extends Controller
 {
@@ -349,5 +350,13 @@ class AdminDashboardController extends Controller
         $user->status = 'pending';
         $user->save();
         return redirect()->back()->with('success', 'User has been Pending now');
+    }
+
+    public function changePassword(Request $request, $id)
+    {
+        $user = User::where('id',$id)->first();
+        $user->password = Hash::make($request->password);
+        $user->save();
+        return redirect()->back()->with('success','Password Changed');
     }
 }
