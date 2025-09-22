@@ -75,6 +75,7 @@ class clean extends Command
         $setting->planA = '100';
         $setting->planB = '200';
         $setting->planC = '300';
+        $setting->planD = '400';
         $setting->status = 1;
         $setting->save();
 
