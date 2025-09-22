@@ -71,11 +71,11 @@ class clean extends Command
         // Referal limite
         $setting = new Setting();
         $setting->min_widthraw = '50';
-        $setting->max_widthraw = '500';
-        $setting->planA = '100';
-        $setting->planB = '200';
-        $setting->planC = '300';
-        $setting->planD = '400';
+        $setting->max_widthraw = '500000';
+        $setting->planA = '120';
+        $setting->planB = '360';
+        $setting->planC = '840';
+        $setting->planD = '1000';
         $setting->status = 1;
         $setting->save();
 

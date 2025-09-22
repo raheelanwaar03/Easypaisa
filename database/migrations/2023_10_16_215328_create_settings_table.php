@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('planA');
             $table->string('planB');
             $table->string('planC');
+            $table->string('planD');
             $table->string('status')->default(0);
             $table->timestamps();
         });
