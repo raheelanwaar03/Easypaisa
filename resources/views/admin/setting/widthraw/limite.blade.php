@@ -20,6 +20,7 @@
                                             <th>Plan A</th>
                                             <th>Plan B</th>
                                             <th>Plan C</th>
+                                            <th>Plan D</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -31,6 +32,7 @@
                                                 <td>{{ $limit->planA }}</td>
                                                 <td>{{ $limit->planB }}</td>
                                                 <td>{{ $limit->planC }}</td>
+                                                <td>{{ $limit->planD }}</td>
                                                 <td>
                                                     <a href="{{ route('Admin.Edit.Widthraw.Limit', ['id' => $limit->id]) }}"
                                                         class="btn btn-sm btn-primary">Edit</a>

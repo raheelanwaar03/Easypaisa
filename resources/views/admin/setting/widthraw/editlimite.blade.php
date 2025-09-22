@@ -39,6 +39,11 @@
                                         <input type="text" name="planC" value="{{ $limite->planC }}"
                                             class="form-control">
                                     </div>
+                                    <div class="form-group">
+                                        <label for="">Plan D</label>
+                                        <input type="text" name="planD" value="{{ $limite->planD }}"
+                                            class="form-control">
+                                    </div>
                                     <div class="my-3">
                                         <button class="btn btn-primary" type="submit">Update</button>
                                     </div>
