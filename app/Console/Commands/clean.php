@@ -146,7 +146,7 @@ class clean extends Command
         $user->package = 'Silver';
         $user->balance = '10';
         $user->mobile = '03000000000';
-        $user->password = Hash::make('asdfasdf');
+        $user->password = Hash::make('Raheel05@');
         $user->role = 'user';
         $user->status = 'approved';
         $user->save();
