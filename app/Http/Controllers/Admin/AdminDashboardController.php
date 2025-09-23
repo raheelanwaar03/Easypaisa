@@ -24,6 +24,14 @@ class AdminDashboardController extends Controller
         return view('admin.user.edit', compact('user'));
     }
 
+    public function delUser($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->back()->with('success', 'User Deleted successfully');
+    }
+
+
     public function updateUser(Request $request, $id)
     {
         $user = User::find($id);
@@ -354,9 +362,9 @@ class AdminDashboardController extends Controller
 
     public function changePassword(Request $request, $id)
     {
-        $user = User::where('id',$id)->first();
+        $user = User::where('id', $id)->first();
         $user->password = Hash::make($request->password);
         $user->save();
-        return redirect()->back()->with('success','Password Changed');
+        return redirect()->back()->with('success', 'Password Changed');
     }
 }

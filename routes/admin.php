@@ -14,6 +14,7 @@ Route::prefix('Admin/')->name('Admin.')->middleware('auth', 'admin')->group(func
     // Edit user
     Route::get('User/Details/{id}', [AdminDashboardController::class, 'editUser'])->name('Edit.User');
     Route::post('Update/User/Details/{id}', [AdminDashboardController::class, 'updateUser'])->name('Update.User.Details');
+    Route::get('Delete/User/{id}', [AdminDashboardController::class, 'delUser'])->name('Delete.User');
 
     Route::get('Pending/Users', [AdminDashboardController::class, 'pending'])->name('Pending.Users');
     Route::get('Today/Users', [AdminDashboardController::class, 'today'])->name('Today.Users');
