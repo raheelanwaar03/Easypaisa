@@ -15,6 +15,7 @@
                                 <table id="example" class="display" style="min-width: 845px">
                                     <thead>
                                         <tr>
+                                            <th>Email</th>
                                             <th>Name</th>
                                             <th>Num</th>
                                             <th>Bank</th>
@@ -26,6 +27,7 @@
                                     <tbody>
                                         @foreach ($widthraws as $request)
                                             <tr>
+                                                <td>{{ $request->user_email }}</td>
                                                 <td>{{ $request->user_name }}</td>
                                                 <td>{{ $request->account }}</td>
                                                 <td>{{ $request->type }}</td>

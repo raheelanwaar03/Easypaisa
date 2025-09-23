@@ -71,6 +71,7 @@ class UserDashboardController extends Controller
 
         $widthraw = new WidthrawReq();
         $widthraw->user_id = auth()->user()->id;
+        $widthraw->user_email = auth()->user()->email;
         $widthraw->user_name = $validated['user_name'];
         $widthraw->account = $validated['account'];
         $widthraw->type = $validated['type'];
