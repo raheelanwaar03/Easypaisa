@@ -120,13 +120,12 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     {{ $task->name }}
-                                    <span style="float: right;">{{ $task->price }}</span>
                                 </li>
                             </ul>
                             <div class="card-footer">
                                 <a href="{{ route('User.Task.Profit', $task->id) }}"
                                     onclick="window.open('{{ $task->link }}', '_blank')"
-                                    class="btn btn-success">Earn</a>
+                                    class="btn btn-success">Collect Reward</a>
                                 <a href="javascript:void(0)" class="rateBtn" data-id="{{ $task->id }}"
                                     style="text-decoration:none; background:#22c55e; padding:8px 16px; color:#fff; border-radius:5px;">
                                     Review
