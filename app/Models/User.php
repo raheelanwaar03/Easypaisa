@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -55,4 +57,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function isAccount10DaysOld(): bool
+    {
+        // Get the user's creation date (assuming the column name is "created_at")
+        $createdAt = $this->created_at;
+
+        // Calculate the difference in days using Carbon
+        $differenceInDays = Carbon::now()->diffInDays($createdAt);
+
+        // Check if the difference is greater than or equal to 15
+        return $differenceInDays >= 10;
+    }
 }

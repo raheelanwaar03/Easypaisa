@@ -90,6 +90,19 @@ class UserDashboardController extends Controller
     {
         $task = PlanTasks::find($id);
 
+        // check if user have join any user in 10 days or not.
+        $user = auth()->user();
+        // Check the latest user they referred
+        $lastReferral = User::where('referral', $user->email)->latest('created_at')->first();
+        if ($lastReferral != null)
+        {
+            // Check how many days since the last referral
+            $daysSinceLastReferral = $lastReferral->created_at->diffInDays(Carbon::now());
+            if ($daysSinceLastReferral >= 10) {
+                return redirect()->back()->with('error', 'you have not join any user from last 10 days');
+            }
+        }
+
         // check if user already got profit for this task today
 
         $profit_check = History::where('user_id', auth()->user()->id)->where('task_id', $task->id)->whereDate('created_at', Carbon::today())->first();
