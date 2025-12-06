@@ -50,6 +50,17 @@ function given_widthraw()
     return $total_widthraw_given;
 }
 
+function pending_widthraw()
+{
+    $widthraw = WidthrawReq::where('status', 'pending')->where('user_id', auth()->user()->id)->get();
+    $total_widthraw_given = 0;
+    foreach ($widthraw as $item) {
+        $total_widthraw_given += $item->amount;
+    }
+    return $total_widthraw_given;
+}
+
+
 function today_widthraw()
 {
     $widthraw = WidthrawReq::where('status', 'approved')->whereDate('created_at', Carbon::today())->get();

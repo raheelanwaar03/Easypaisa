@@ -36,12 +36,12 @@
                         &nbsp;
                     </div>
                     <div class="column_box" style="float: left;text-align: left;padding-top: 5px;"><span
-                            style="font-size: 9px;">Approved Withdrawal</span></div>
+                            style="font-size: 9px;">Account Balance</span></div>
                     <div class="column_box" style="float: right;padding-top: 5px;">
                         &nbsp;
                     </div>
                     <div class="column_box" style="float: left;padding-top: 5px;">
-                        <span style=""><b>Rs.{{ given_widthraw() }}</b></span> <i
+                        <span style=""><b>Rs.{{ auth()->user()->balance }}</b></span> <i
                             class="fa fa-arrow-circle-o-right" aria-hidden="true" style="color: #000 !important;"></i>
                     </div>
                     <div class="column_box" style="float: right;text-align: right;padding-top: 5px;">&nbsp;</div>

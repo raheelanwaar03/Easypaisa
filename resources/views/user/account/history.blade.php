@@ -47,12 +47,8 @@
                         <span style=""><b>Rs.{{ given_widthraw() }}</b></span> <i
                             class="fa fa-arrow-circle-o-right" aria-hidden="true" style="color: #000 !important;"></i>
                     </div>
-                    <div class="column_box" style="float: right;text-align: right;padding-top: 5px;">&nbsp;</div>
-                    <div class="column_box" style="float: left;padding-top: 5px;">
-                        <a href="{{ route('User.Widthraw.Amount') }}" style="text-decoration: none;color:#000">
-                            <i class="fa fa-refresh" aria-hidden="true" style="color: #000;"></i>
-                            <span style="font-size: 8px;padding-top: 5px;">Update Just Now</span>
-                        </a>
+                    <div class="">
+                        <p>Pending Withdraw({{ pending_widthraw() }})</p>
                     </div>
                 </div>
 
