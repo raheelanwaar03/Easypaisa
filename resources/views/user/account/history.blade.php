@@ -78,7 +78,7 @@
                                 <tbody>
                                     @foreach ($history as $item)
                                         <tr>
-                                            <td>{{ $item->created_at }}</td>
+                                            <td>{{ $item->created_at->diffForHumans() }}</td>
                                             <td>{{ $item->amount }}</td>
                                             <td>{{ $item->status }}</td>
                                         </tr>
