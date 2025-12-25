@@ -39,6 +39,12 @@
                         &nbsp;
                     </div>
                     <div class="column_box" style="float: left;text-align: left;padding-top: 5px;"><span
+                            style="font-size: 10px;">Avaliable Balance
+                            ({{ number_format(auth()->user()->balance, 1) }})</span></div>
+                    <div class="column_box" style="float: right;padding-top: 5px;">
+                        &nbsp;
+                    </div>
+                    <div class="column_box" style="float: left;text-align: left;padding-top: 5px;"><span
                             style="font-size: 9px;">Approved Withdrawal</span></div>
                     <div class="column_box" style="float: right;padding-top: 5px;">
                         &nbsp;
@@ -68,7 +74,7 @@
                             <table id="dataTable" class="table table-responsive table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
+                                        <th>Date</th>
                                         <th>Amount</th>
                                         <th>Status</th>
                                     </tr>
@@ -76,7 +82,7 @@
                                 <tbody>
                                     @foreach ($history as $item)
                                         <tr>
-                                            <td>{{ $item->user_name }}</td>
+                                            <td>{{ $item->created_at }}</td>
                                             <td>{{ $item->amount }}</td>
                                             <td>{{ $item->status }}</td>
                                         </tr>
@@ -87,7 +93,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
         @include('layouts.links')

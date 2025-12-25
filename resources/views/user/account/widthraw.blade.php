@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>User | Dashboard</title>
-
 </head>
 
 <body style="background-color: #eee !important;height: 740px;">
@@ -36,7 +35,7 @@
                         &nbsp;
                     </div>
                     <div class="column_box" style="float: left;text-align: left;padding-top: 5px;"><span
-                            style="font-size: 9px;">Account Balance</span></div>
+                            style="font-size: 9px;">Available Balance</span></div>
                     <div class="column_box" style="float: right;padding-top: 5px;">
                         &nbsp;
                     </div>
