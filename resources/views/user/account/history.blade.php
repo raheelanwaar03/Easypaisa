@@ -39,19 +39,15 @@
                         &nbsp;
                     </div>
                     <div class="column_box" style="float: left;text-align: left;padding-top: 5px;"><span
-                            style="font-size: 10px;">Avaliable Balance
-                            ({{ number_format(auth()->user()->balance, 1) }})</span></div>
+                            style="font-size: 10px;"><strong>Avaliable Balance
+                                ({{ number_format(auth()->user()->balance, 1) }})
+                            </strong> </span></div>
                     <div class="column_box" style="float: right;padding-top: 5px;">
                         &nbsp;
                     </div>
                     <div class="column_box" style="float: left;text-align: left;padding-top: 5px;"><span
-                            style="font-size: 9px;">Approved Withdrawal</span></div>
-                    <div class="column_box" style="float: right;padding-top: 5px;">
-                        &nbsp;
-                    </div>
-                    <div class="column_box" style="float: left;padding-top: 5px;">
-                        <span style=""><b>Rs.{{ given_widthraw() }}</b></span> <i
-                            class="fa fa-arrow-circle-o-right" aria-hidden="true" style="color: #000 !important;"></i>
+                            style="font-size: 9px;"> <strong>Approved Withdrawal ({{ given_widthraw() }})</strong>
+                        </span>
                     </div>
                     <div class="">
                         <p>Pending Withdraw({{ pending_widthraw() }})</p>
