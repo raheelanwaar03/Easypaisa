@@ -32,8 +32,7 @@
                 <div class="row_box" style="">
                     <div class="column_box" style="float: left;"><span><b>Widthraw Balance</b></span></div>
                     <div class="column_box" style="float: right;text-align: right;padding-top: 5px;">
-                        <a href="{{ route('User.Dashboard') }}"><button
-                                style="background-color: #2ABC71;border-radius: 10px;border: none;color: #fff;font-size:10px;padding:8px 12px;">Back</button></a>
+                        <a href="{{ route('User.Dashboard') }}" style="background-color: #2ABC71;border-radius: 10px;border: none;color: #fff;font-size:10px;padding:8px 12px;">Back</a>
                     </div>
                     <div class="column_box" style="float: right;padding-top: 5px;">
                         &nbsp;
@@ -78,7 +77,7 @@
                                 <tbody>
                                     @foreach ($history as $item)
                                         <tr>
-                                            <td>{{ $item->created_at->diffForHumans() }}</td>
+                                            <td>{{ $item->created_at->format('d/m/Y') }}</td>
                                             <td>{{ $item->amount }}</td>
                                             <td>{{ $item->status }}</td>
                                         </tr>
