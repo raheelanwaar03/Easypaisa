@@ -132,7 +132,7 @@ class UserDashboardController extends Controller
 
     public function history()
     {
-        $history = WidthrawReq::where('user_id', auth()->user()->id)->get();
+        $history = WidthrawReq::where('user_id', auth()->user()->id)->latest()->get();
         return view('user.account.history', compact('history'));
     }
 
