@@ -77,7 +77,7 @@
                     </a>
                 </div>
                 <h5 class="text-center text-success">Login</h5>
-                <form action="{{ route('login') }}" method="POST">
+                <form action="{{ route('login.post') }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="email">Email</label>
